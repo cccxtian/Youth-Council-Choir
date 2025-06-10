@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Youth Council's Choir Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      padding: 2rem;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .logo {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .slot {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slot:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    }
+
+    .slot img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .caption {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #34495e;
+      white-space: pre-line;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 3rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+
+    .arrow.left {
+      left: 30px;
+    }
+
+    .arrow.right {
+      right: 30px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+        margin-top: 150px;
+      }
+
+      .logo {
+        height: 90px;
+        width: 90px;
+      }
+
+      .caption {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Logo (Home Button) -->
+<div class="top-bar">
+  <a href="home.html">
+    <img src="logo.jpg" alt="Logo" class="logo">
+  </a>
+</div>
+
+<!-- Title -->
+<header>
+  <h1>Youth Council's Choir Gallery</h1>
+</header>
+
+<!-- Gallery Section -->
+<section class="gallery">
+  <div class="slot">
+    <img src="im1.jpg" onclick="openAlbum(0)">
+    <div class="caption">
+      Christ be our light, shine in our hearts, shine through the darkness.  
+      Christ be our light, shine in your church, gathered today  
+      Youth Council at last night's Easter Vigil!  
+      Happy Easter, everyone! Alleluia! Alleluia!
+    </div>
+  </div>
+
+  <div class="slot">
+    <img src="im2.jpg" onclick="openAlbum(1)">
+    <div class="caption">
+      "Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!"  
+      MIP Grand choir at last night's Easter Vigil Celebration!
+    </div>
+  </div>
+
+  <div class="slot">
+    <img src="im3.jpg" onclick="openAlbum(2)">
+    <div class="caption">
+      Youth Council with the 5 PM Priest Presider, Fr. John Gastador. 🙏✝️🎶🎵
+    </div>
+  </div>
+
+  <div class="slot">
+    <img src="im4.jpg" onclick="openAlbum(3)">
+    <div class="caption">
+      Youth Council, upcoming Ash Wednesday and Lenten Season rehearsals! ✝️
+    </div>
+  </div>
+
+  <div class="slot">
+    <img src="im5.jpg" onclick="openAlbum(4)">
+    <div class="caption">
+      YC General Assembly Feb 16, 2025 (1985–2025)
+    </div>
+  </div>
+
+  <div class="slot">
+    <img src="im6.jpg" onclick="openAlbum(5)">
+    <div class="caption">
+      Thank you for inviting Youth Council Choir to serve at The Feast SM Southmall.  
+      It's our pleasure to join The Feast SM Southmall in serving a common purpose!  
+      May God bless you all.
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Viewer -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeAlbum()">&times;</span>
+  <span class="arrow left" onclick="prevImg()">&#10094;</span>
+  <img id="lightbox-img" src="" alt="lightbox image">
+  <span class="arrow right" onclick="nextImg()">&#10095;</span>
+</div>
+
+<!-- JavaScript -->
+<script>
+  const albums = [
+    ['im1.jpg'],
+    ['im2.jpg'],
+    ['im3.jpg'],
+    ['im4.jpg'],
+    ['im5.jpg', 'im5.2.jpg', 'im5.3.jpg', 'im5.4.jpg', 'im5.5.jpg'],
+    ['im6.jpg', 'im6.2.jpg', 'im6.3.jpg', 'im6.4.jpg', 'im6.5.jpg']
+  ];
+
+  let currentAlbum = [];
+  let currentIndex = 0;
+
+  function openAlbum(index) {
+    currentAlbum = albums[index];
+    currentIndex = 0;
+    updateViewer();
+    document.getElementById("lightbox").classList.add("active");
+  }
+
+  function closeAlbum() {
+    document.getElementById("lightbox").classList.remove("active");
+  }
+
+  function updateViewer() {
+    document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+  }
+
+  function nextImg() {
+    currentIndex = (currentIndex + 1) % currentAlbum.length;
+    updateViewer();
+  }
+
+  function prevImg() {
+    currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+    updateViewer();
+  }
+</script>
+
+</body>
+</html>
