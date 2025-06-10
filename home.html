@@ -57,17 +57,17 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
-    /* Slim & elegant Navigation styling */
+    /* Transparent Green Nav */
     .nav-links {
       width: 100%;
-      background-color: #2e2e2e;
-      font-size: 17px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      background-color: rgba(0, 128, 0, 0.6); /* semi-transparent green */
+      font-size: 16px;
+      backdrop-filter: blur(4px);
     }
 
     .nav-links td {
       text-align: center;
-      padding: 10px 8px;
+      padding: 8px 6px; /* Slimmer */
     }
 
     .nav-links a {
@@ -77,7 +77,7 @@
       color: white;
       font-weight: 600;
       letter-spacing: 0.5px;
-      padding: 6px 10px;
+      padding: 4px 10px;
       transition: color 0.25s ease;
     }
 
@@ -85,17 +85,17 @@
       content: '';
       position: absolute;
       left: 50%;
-      bottom: 3px;
+      bottom: 2px;
       transform: translateX(-50%);
       width: 0%;
       height: 2px;
-      background-color: #00cc66;
+      background-color: white;
       transition: width 0.3s ease;
       border-radius: 1px;
     }
 
     .nav-links td:hover a {
-      color: #00cc66;
+      color: #ccffcc;
     }
 
     .nav-links td:hover a::after {
@@ -172,7 +172,7 @@
       margin: 0;
     }
 
-    /* Responsive adjustments */
+    /* Responsive */
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
@@ -203,11 +203,11 @@
       }
 
       .nav-links {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .nav-links td {
-        padding: 8px 4px;
+        padding: 6px 4px;
       }
     }
   </style>
@@ -235,7 +235,7 @@
   </tr>
 </table>
 
-<!-- Slide image and call to action -->
+<!-- Slide section -->
 <div class="slide">
   <img src="im6.4.jpg" alt="Choir Invitation">
   <div class="overlay">
