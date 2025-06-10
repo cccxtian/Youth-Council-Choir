@@ -10,141 +10,160 @@
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
     }
 
-    .container {
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: start;
       padding: 30px;
-      min-height: calc(100vh - 300px); /* Full height minus header/footer */
+      background-image: url('bg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 220px;
+      color: white;
     }
 
-    .section-titles {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 15px;
+    .header-logo img {
+      border-radius: 50%;
+      border: 4px solid white;
     }
 
-    .section-title:first-child {
-      flex: 2.5; /* match news-card */
-      font-size: 36px;
-      font-weight: bold;
-      color: #a60000;
-      text-align: center;
+    .header-text {
+      margin-left: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 48px;
       margin: 0;
-      line-height: 1.2;
+      font-weight: 800;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
-    .section-title:last-child {
-      flex: 1; /* match bday-card */
-      font-size: 36px;
-      font-weight: bold;
-      color: #a60000;
-      text-align: center;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .section {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      margin-top: 0;
-      height: 100%;
-      align-items: stretch;
-    }
-
-    /* Increased flex for news */
-    .news-card {
-      flex: 2.5;
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px 30px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .bday-card {
-      flex: 1;
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px 30px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-    }
-
-    .slide-content {
-      display: flex;
-      gap: 25px;
-      align-items: flex-start;
-    }
-
-    .slide-content img,
-    .bdaySlide img {
-      width: 320px;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .slider-nav {
+    .header-text h2 {
       font-size: 24px;
-      cursor: pointer;
-      background: none;
-      border: none;
+      margin-top: 10px;
+      font-weight: 400;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
-    .bdaySlide {
+    /* Navigation styling */
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Navigation bar */
+    table.nav-links {
+      width: 100%;
+      background-color: #444;
+    }
+
+    table.nav-links td {
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Slide section */
+    .slide {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-    }
-
-    .news-slider,
-    .bday-slider {
-      width: 100%;
-      height: 420px; /* Adjusted to fit larger images */
-    }
-
-    .bdaySlide font {
       text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 20px;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .section-titles {
+    .overlay h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      max-width: 90%;
+      margin-bottom: 30px;
+    }
+
+    .overlay a {
+      color: #a60000;
+      background-color: white;
+      padding: 14px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .overlay a:hover {
+      background-color: #a60000;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #222;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer p {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .header {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        text-align: center;
       }
 
-      .section-title:first-child,
-      .section-title:last-child {
-        flex: none;
-        font-size: 28px;
+      .header-text {
+        margin-left: 0;
+        margin-top: 10px;
       }
 
-      .section {
-        flex-direction: column;
+      .header-text h1 {
+        font-size: 32px;
       }
 
-      .news-card, .bday-card {
-        height: auto;
+      .header-text h2 {
+        font-size: 18px;
       }
 
-      .news-slider, .bday-slider {
-        height: auto;
+      .overlay h1 {
+        font-size: 32px;
       }
 
-      .slide-content img,
-      .bdaySlide img {
-        width: 100%;
-        height: auto;
+      .overlay a {
+        font-size: 16px;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -152,156 +171,40 @@
 <body>
 
 <!-- Header -->
-<table width="100%" height="220" background="bg.png" style="background-size: cover; background-repeat: no-repeat;">
-  <tr>
-    <td width="220" align="left" valign="middle" rowspan="2" style="padding-left: 30px;">
-      <img src="logo.jpg" width="170" height="170" alt="Church Logo" style="border-radius: 50%; border: 4px solid white;">
-    </td>
-    <td align="left" valign="middle">
-      <font color="white" size="6"><b>Youth Council Choir</b></font><br>
-      <font color="white" size="4">Mary Immaculate Parish – Nature’s Church Domain</font>
-    </td>
-  </tr>
-</table>
+<div class="header">
+  <div class="header-logo">
+    <img src="logo.jpg" width="170" height="170" alt="Church Logo">
+  </div>
+  <div class="header-text">
+    <h1>Youth Council Choir</h1>
+    <h2>Mary Immaculate Parish - Nature's Church Domain</h2>
+  </div>
+</div>
 
 <!-- Navigation -->
-<table width="100%" bgcolor="#444444" cellpadding="10">
-  <tr align="center">
-    <td><a href="#"><font color="white"><b>Home</b></font></a></td>
-    <td><a href="#"><font color="white"><b>About</b></font></a></td>
-    <td><a href="#"><font color="white"><b>Schedule</b></font></a></td>
-    <td><a href="gallery.html"><font color="white"><b>Gallery</b></font></a></td>
-    <td><a href="#"><font color="white"><b>Contact</b></font></a></td>
+<table class="nav-links">
+  <tr>
+    <td><a href="#">Home</a></td>
+    <td><a href="#">About</a></td>
+    <td><a href="#">Schedule</a></td>
+    <td><a href="gallery.html">Gallery</a></td>
+    <td><a href="#">Contact</a></td>
   </tr>
 </table>
 
-<!-- Titles -->
-<div class="container">
-  <div class="section-titles">
-    <h2 class="section-title">Latest News & Updates</h2>
-    <h2 class="section-title">Birthday Corner</h2>
-  </div>
-
-  <div class="section">
-    <!-- News Section -->
-    <div class="news-card">
-      <table class="news-slider">
-        <tr>
-          <td width="10%" align="center">
-            <button class="slider-nav" onclick="prevSlide()">&#10094;</button>
-          </td>
-          <td width="80%">
-            <div id="slider">
-              <div class="slide" style="display:block;">
-                <div class="slide-content">
-                  <img src="new1.jpg" alt="Zumba">
-                  <div>
-                    <font size="4">
-                      <b>Join us this June 12, 2025 for Zumba for a Cause!</b><br><br>
-                      Get ready to dance your heart out and make a difference with our amazing instructor, Zin Camper Cantos! Let’s move, sweat, and support a great cause together. Don’t miss out—bring your friends and family!<br><br>
-                      <a href="#"><font color="#a60000"><b>Read more...</b></font></a>
-                    </font>
-                  </div>
-                </div>
-              </div>
-              <div class="slide" style="display:none;">
-                <div class="slide-content">
-                  <img src="new2.jpg" alt="Youth Mass">
-                  <div>
-                    <font size="4">
-                      <b>Upcoming Youth Mass This July!</b><br><br>
-                      Celebrate faith, music, and fellowship during our Youth Mass. Get involved, sing with us, and strengthen our community ties. 🕊️<br><br>
-                      <a href="#"><font color="#a60000"><b>Read more...</b></font></a>
-                    </font>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td width="10%" align="center">
-            <button class="slider-nav" onclick="nextSlide()">&#10095;</button>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Birthday Section -->
-    <div class="bday-card">
-      <table class="bday-slider">
-        <tr>
-          <td width="10%" align="center">
-            <button class="slider-nav" onclick="prevBdaySlide()">&#10094;</button>
-          </td>
-          <td width="80%" align="center">
-            <div id="bdaySlider">
-              <div class="bdaySlide" style="display:block;">
-                <img src="bday1.jpg" alt="Birthday 1"><br><br>
-                <font size="4"><b>Happy Birthday, Alyssa!</b><br>June 10</font>
-              </div>
-              <div class="bdaySlide" style="display:none;">
-                <img src="bday2.jpg" alt="Birthday 2"><br><br>
-                <font size="4"><b>Happy Birthday, Mark!</b><br>June 12</font>
-              </div>
-            </div>
-          </td>
-          <td width="10%" align="center">
-            <button class="slider-nav" onclick="nextBdaySlide()">&#10095;</button>
-          </td>
-        </tr>
-      </table>
-    </div>
+<!-- Slide image and call to action -->
+<div class="slide">
+  <img src="im6.4.jpg" alt="Choir Invitation">
+  <div class="overlay">
+    <h1>Do you love to sing?<br>Be part of the Youth Council Choir!</h1>
+    <a href="https://www.facebook.com/YouthCouncilChoir">Message Now</a>
   </div>
 </div>
 
 <!-- Footer -->
-<table width="100%" bgcolor="#222222" cellpadding="20">
-  <tr>
-    <td align="center">
-      <font color="#cccccc" size="2">&copy; 2025 Youth Council Choir - Mary Immaculate Parish. All rights reserved.</font>
-    </td>
-  </tr>
-</table>
-
-<!-- Scripts -->
-<script>
-  let slideIndex = 0;
-  let slides = document.getElementsByClassName("slide");
-
-  function showSlide(n) {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = i === n ? "block" : "none";
-    }
-  }
-
-  function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlide(slideIndex);
-  }
-
-  function prevSlide() {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlide(slideIndex);
-  }
-
-  let bdayIndex = 0;
-  let bdaySlides = document.getElementsByClassName("bdaySlide");
-
-  function showBdaySlide(n) {
-    for (let i = 0; i < bdaySlides.length; i++) {
-      bdaySlides[i].style.display = i === n ? "block" : "none";
-    }
-  }
-
-  function nextBdaySlide() {
-    bdayIndex = (bdayIndex + 1) % bdaySlides.length;
-    showBdaySlide(bdayIndex);
-  }
-
-  function prevBdaySlide() {
-    bdayIndex = (bdayIndex - 1 + bdaySlides.length) % bdaySlides.length;
-    showBdaySlide(bdayIndex);
-  }
-</script>
+<div class="footer">
+  <p>&copy; 2025 Youth Council Choir - Mary Immaculate Parish. All rights reserved.</p>
+</div>
 
 </body>
 </html>
