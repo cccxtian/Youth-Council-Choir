@@ -10,7 +10,7 @@
       --secondary: #182848;
       --highlight: #b8e994;
       --bg: #f3f4f6;
-      --text: #ffffff;
+      --text: #333;
       --fade-in: fade-in 0.8s ease-out forwards;
     }
 
@@ -27,11 +27,10 @@
       margin: 0;
       padding: 20px;
       font-family: 'Segoe UI', sans-serif;
+      background: url("bg1.jpg") no-repeat center center fixed;
+      background-size: cover;
       color: var(--text);
       animation: var(--fade-in);
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                  url('bg1.jpg') no-repeat center center fixed;
-      background-size: cover;
     }
 
     header {
@@ -42,26 +41,27 @@
       animation: var(--fade-in);
     }
 
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  color: var(--highlight); /* ← updated to match month color */
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 6px 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  backdrop-filter: blur(8px);
-}
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--highlight); /* changed from var(--primary) */
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+    }
 
     .logo-link:hover {
       background-color: var(--highlight);
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      color: #182848;
     }
 
     .logo-link img {
@@ -74,10 +74,9 @@
     h1 {
       text-align: center;
       margin-bottom: 40px;
-      color: #fff;
-      font-size: 2.3rem;
+      color: var(--highlight); /* updated from var(--secondary) */
+      font-size: 2rem;
       animation: var(--fade-in);
-      text-shadow: 2px 2px 6px #000;
     }
 
     #calendar {
@@ -88,18 +87,16 @@
     }
 
     .month {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       padding: 20px;
       transition: all 0.3s ease;
-      backdrop-filter: blur(12px);
-      color: #fff;
     }
 
     .month:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
     }
 
     .month-name {
@@ -108,7 +105,6 @@
       font-size: 1.4rem;
       color: var(--highlight);
       margin-bottom: 15px;
-      text-shadow: 1px 1px 3px #000;
     }
 
     .weekdays {
@@ -117,9 +113,8 @@
       text-align: center;
       font-weight: bold;
       font-size: 0.9rem;
-      color: #ddd;
+      color: #555;
       margin-bottom: 5px;
-      text-shadow: 1px 1px 2px #000;
     }
 
     .days {
@@ -136,8 +131,6 @@
       font-size: 0.85rem;
       transition: all 0.3s ease;
       background-color: transparent;
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
     }
 
     .blank {
@@ -148,8 +141,6 @@
       background-color: var(--highlight);
       font-weight: bold;
       cursor: pointer;
-      color: #000;
-      text-shadow: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -197,7 +188,7 @@
     </a>
   </header>
 
-  <h1>2025 Calendar</h1>
+  <h1>Youth Council Choir 2025 Calendar</h1>
   <div id="calendar"></div>
 
   <script>
