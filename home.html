@@ -60,14 +60,14 @@
     /* Transparent Green Nav */
     .nav-links {
       width: 100%;
-      background-color: rgba(0, 128, 0, 0.3); /* Transparent green */
+      background-color: rgba(0, 128, 0, 0.3);
       font-size: 16px;
       backdrop-filter: blur(6px);
     }
 
     .nav-links td {
       text-align: center;
-      padding: 6px 4px; /* Slim */
+      padding: 6px 4px;
     }
 
     .nav-links a {
@@ -159,17 +159,12 @@
       transform: scale(1.05);
     }
 
-    /* Clean Footer (no bg) */
-    .footer {
-      background: none;
-      text-align: center;
-      padding: 18px;
-    }
-
-    .footer p {
-      color: #333;
-      font-size: 14px;
-      margin: 0;
+    .overlay .footer-text {
+      position: absolute;
+      bottom: 10px;
+      font-size: 13px;
+      color: #eeeeee;
+      opacity: 0.9;
     }
 
     /* Responsive */
@@ -209,6 +204,11 @@
       .nav-links td {
         padding: 5px 3px;
       }
+
+      .overlay .footer-text {
+        font-size: 12px;
+        bottom: 6px;
+      }
     }
   </style>
 </head>
@@ -241,12 +241,10 @@
   <div class="overlay">
     <h1>Do you love to sing?<br>Be part of the Youth Council Choir!</h1>
     <a href="https://www.facebook.com/YouthCouncilChoir" target="_blank" rel="noopener">Message Now</a>
+    <div class="footer-text">
+      &copy; 2025 Youth Council Choir - Mary Immaculate Parish. All rights reserved.
+    </div>
   </div>
-</div>
-
-<!-- Footer -->
-<div class="footer">
-  <p>&copy; 2025 Youth Council Choir - Mary Immaculate Parish. All rights reserved.</p>
 </div>
 
 </body>
