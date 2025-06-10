@@ -29,90 +29,80 @@
       color: white;
     }
 
-    .header-logo {
-      position: relative;
-    }
-
     .header-logo img {
       border-radius: 50%;
       border: 4px solid white;
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .header-logo img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    }
-
-    .back-home {
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      color: #444;
-      padding: 4px 10px;
-      font-size: 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .back-home:hover {
-      background-color: #a60000;
-      color: white;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
     }
 
     .header-text {
-      margin-left: 30px;
+      margin-left: 25px;
     }
 
     .header-text h1 {
-      font-size: 48px;
+      font-size: 44px;
       margin: 0;
       font-weight: 800;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
     .header-text h2 {
-      font-size: 24px;
+      font-size: 22px;
       margin-top: 10px;
       font-weight: 400;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
-    /* Slim Navigation Bar */
+    /* Navigation Bar */
     table.nav-links {
       width: 100%;
-      background-color: #222;
+      background-color: #104d30;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     table.nav-links td {
       text-align: center;
-      padding: 10px 5px;
-      transition: background-color 0.3s ease;
+      padding: 6px 4px;
     }
 
     table.nav-links a {
+      position: relative;
       text-decoration: none;
       color: white;
       font-weight: 600;
-      font-size: 15px;
-      display: inline-block;
+      font-size: 14px;
       padding: 6px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    table.nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #7fff8c;
+      transition: width 0.3s ease, left 0.3s ease;
     }
 
     table.nav-links a:hover {
-      background-color: #a60000;
-      transform: translateY(-2px);
+      color: #7fff8c;
+    }
+
+    table.nav-links a:hover::after {
+      width: 100%;
+      left: 0;
     }
 
     /* Slide Section */
@@ -154,7 +144,7 @@
     }
 
     .overlay a {
-      color: #a60000;
+      color: #104d30;
       background-color: white;
       padding: 14px 30px;
       font-size: 20px;
@@ -166,7 +156,7 @@
     }
 
     .overlay a:hover {
-      background-color: #a60000;
+      background-color: #104d30;
       color: white;
       transform: scale(1.05);
     }
@@ -213,18 +203,24 @@
         font-size: 16px;
         padding: 10px 20px;
       }
+
+      table.nav-links td {
+        padding: 8px 2px;
+      }
+
+      table.nav-links a {
+        font-size: 13px;
+        padding: 5px 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Header with Logo -->
+<!-- Header -->
 <div class="header">
   <div class="header-logo">
-    <a href="home.html">
-      <img src="logo.jpg" alt="Church Logo">
-      <div class="back-home">Back Home</div>
-    </a>
+    <img src="logo.jpg" alt="Church Logo">
   </div>
   <div class="header-text">
     <h1>Youth Council Choir</h1>
@@ -232,7 +228,7 @@
   </div>
 </div>
 
-<!-- Navigation Bar -->
+<!-- Navigation -->
 <table class="nav-links">
   <tr>
     <td><a href="home.html">Home</a></td>
@@ -242,7 +238,7 @@
   </tr>
 </table>
 
-<!-- Slide / Hero Section -->
+<!-- Slide -->
 <div class="slide">
   <img src="im6.4.jpg" alt="Choir Invitation">
   <div class="overlay">
