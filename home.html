@@ -25,9 +25,24 @@
       background-image: url('bg.png');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center;
-      height: 220px;
+      background-position: center top;
       color: white;
+      min-height: 220px;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: inherit;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      opacity: 0.3;
+      z-index: -1;
     }
 
     .header-logo img {
@@ -175,11 +190,11 @@
       margin: 0;
     }
 
-    /* Responsive ONLY for smaller screens (no layout change) */
+    /* Responsive adjustments only for size */
     @media (max-width: 768px) {
       .header {
         padding: 15px 20px;
-        height: auto;
+        min-height: 160px;
       }
 
       .header-logo img {
