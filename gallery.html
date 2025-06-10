@@ -16,15 +16,16 @@
       background: linear-gradient(to right, #f5f7fa, #c3cfe2);
     }
 
-    /* Clickable Logo */
+    /* Logo with Back Home link */
     .logo-container {
-      padding: 20px;
+      padding: 20px 30px;
     }
 
     .logo-link {
-      display: inline-block;
-      border-radius: 50%;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -34,37 +35,45 @@
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid white;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .logo-link:hover {
+    .logo-link:hover img {
       transform: scale(1.1);
       box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
-      cursor: pointer;
     }
 
-    .logo-link::after {
-      content: "Go to Home";
+    .logo-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+
+    .logo-link:hover .logo-text {
+      color: #388e3c;
+      transform: translateX(3px);
+    }
+
+    .logo-text::after {
+      content: '';
       position: absolute;
-      background-color: #333;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      opacity: 0;
-      transform: translateY(-120%);
-      transition: opacity 0.3s ease;
-      white-space: nowrap;
-      pointer-events: none;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #388e3c;
+      transition: width 0.3s ease;
     }
 
-    .logo-link:hover::after {
-      opacity: 1;
+    .logo-link:hover .logo-text::after {
+      width: 100%;
     }
 
     header h1 {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 30px;
       font-size: 2.5rem;
       color: #2c3e50;
     }
@@ -97,6 +106,7 @@
       object-fit: cover;
       cursor: pointer;
       display: block;
+      margin-bottom: 0;
     }
 
     .caption {
@@ -162,7 +172,7 @@
     @media (max-width: 768px) {
       header h1 {
         font-size: 1.8rem;
-        margin-top: 10px;
+        margin-top: 20px;
       }
 
       .caption {
@@ -171,6 +181,10 @@
 
       .arrow {
         font-size: 2.2rem;
+      }
+
+      .logo-link .logo-text {
+        font-size: 0.9rem;
       }
     }
 
@@ -183,10 +197,11 @@
 </head>
 <body>
 
-<!-- Clickable Logo -->
+<!-- Clickable Logo with Back to Home -->
 <div class="logo-container">
   <a href="home.html" class="logo-link" title="Back to Home">
     <img src="logo.jpg" alt="Logo">
+    <span class="logo-text">← Back to Home</span>
   </a>
 </div>
 
