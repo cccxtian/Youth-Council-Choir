@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youth Council Choir - Nature’s Church</title>
   <style>
     * {
@@ -52,10 +50,13 @@
       display: flex;
       justify-content: space-between;
       gap: 40px;
+      margin-top: 0;
+      height: 100%;
       align-items: stretch;
     }
 
-    .news-card, .bday-card {
+    .news-card {
+      flex: 2.5;
       background-color: white;
       border-radius: 10px;
       padding: 20px 30px;
@@ -65,13 +66,16 @@
       height: 100%;
     }
 
-    .news-card {
-      flex: 2.5;
-    }
-
     .bday-card {
       flex: 1;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      height: 100%;
     }
 
     .slide-content {
@@ -111,80 +115,37 @@
       text-align: center;
     }
 
-    /* Responsive Styling */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .section-titles {
         flex-direction: column;
         gap: 10px;
         align-items: center;
       }
 
-      .section-title {
-        font-size: 24px !important;
+      .section-title:first-child,
+      .section-title:last-child {
+        flex: none;
+        font-size: 28px;
         text-align: center;
+        margin: 5px 0;
       }
 
       .section {
         flex-direction: column;
-        gap: 20px;
       }
 
-      .news-card,
-      .bday-card {
-        padding: 15px;
-        box-shadow: none;
+      .news-card, .bday-card {
+        height: auto;
       }
 
-      .slide-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+      .news-slider, .bday-slider {
+        height: auto;
       }
 
       .slide-content img,
       .bdaySlide img {
         width: 100%;
         height: auto;
-        max-width: 100%;
-      }
-
-      .slider-nav {
-        font-size: 20px;
-      }
-
-      table.news-slider,
-      table.bday-slider {
-        height: auto;
-        width: 100%;
-      }
-
-      .container {
-        padding: 15px;
-      }
-
-      table[background] {
-        height: auto !important;
-        background-size: cover;
-      }
-
-      td[align="left"] font[size="6"] {
-        font-size: 24px !important;
-      }
-
-      td[align="left"] font[size="4"] {
-        font-size: 16px !important;
-      }
-
-      table[bgcolor="#444444"] td {
-        padding: 10px;
-      }
-
-      .bdaySlide font {
-        font-size: 16px;
-      }
-
-      table[bgcolor="#222222"] font {
-        font-size: 12px;
       }
     }
   </style>
@@ -192,10 +153,10 @@
 <body>
 
 <!-- Header -->
-<table width="100%" height="220" background="bg.png" style="background-size: cover; background-repeat: no-repeat;">
+<table width="100%" style="background: url('bg.png') center/cover no-repeat; height: 220px;">
   <tr>
     <td width="220" align="left" valign="middle" rowspan="2" style="padding-left: 30px;">
-      <img src="logo.jpg" width="170" height="170" alt="Church Logo" style="border-radius: 50%; border: 4px solid white;">
+      <img src="logo.jpg" style="width: 140px; max-width: 100%; height: auto; border-radius: 50%; border: 4px solid white;">
     </td>
     <td align="left" valign="middle">
       <font color="white" size="6"><b>Youth Council Choir</b></font><br>
@@ -302,7 +263,7 @@
   </tr>
 </table>
 
-<!-- JavaScript -->
+<!-- Scripts -->
 <script>
   let slideIndex = 0;
   let slides = document.getElementsByClassName("slide");
