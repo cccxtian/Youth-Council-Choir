@@ -27,9 +27,41 @@
       color: white;
     }
 
+    .header-logo {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
     .header-logo img {
       border-radius: 50%;
       border: 4px solid white;
+      width: 170px;
+      height: 170px;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .back-home {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      background-color: #2e8b57;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #3cb371;
+      transform: translateY(-2px);
     }
 
     .header-text {
@@ -51,21 +83,50 @@
     }
 
     /* Navigation styling */
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-
-    /* Navigation bar */
     table.nav-links {
       width: 100%;
-      background-color: #444;
+      background-color: #222;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
     table.nav-links td {
       text-align: center;
-      padding: 10px;
+      padding: 16px;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+
+    table.nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      position: relative;
+      display: inline-block;
+      padding: 8px 12px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    table.nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 3px;
+      background-color: #90ee90;
+      transition: width 0.3s ease-in-out;
+      border-radius: 2px;
+    }
+
+    table.nav-links a:hover {
+      color: #90ee90;
+      transform: scale(1.05);
+    }
+
+    table.nav-links a:hover::after {
+      width: 100%;
     }
 
     /* Slide section */
@@ -107,7 +168,7 @@
     }
 
     .overlay a {
-      color: #a60000;
+      color: #2e8b57;
       background-color: white;
       padding: 14px 30px;
       font-size: 20px;
@@ -119,7 +180,7 @@
     }
 
     .overlay a:hover {
-      background-color: #a60000;
+      background-color: #2e8b57;
       color: white;
       transform: scale(1.05);
     }
@@ -164,6 +225,11 @@
       .overlay a {
         font-size: 16px;
         padding: 10px 20px;
+      }
+
+      .back-home {
+        bottom: -30px;
+        font-size: 12px;
       }
     }
   </style>
