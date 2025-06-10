@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Youth Council Choir Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,11 +13,13 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f7f9fc, #dbeafe);
+      color: #1f2937;
+      line-height: 1.6;
     }
 
-    /* Logo with Back Home link */
+    /* Logo + Home Link */
     .logo-container {
       padding: 20px 30px;
     }
@@ -26,107 +29,105 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .logo-link:hover {
+      transform: translateY(-2px);
+      background-color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
 
     .logo-link img {
-      height: 60px;
-      width: 60px;
+      height: 50px;
+      width: 50px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid white;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .logo-link:hover img {
-      transform: scale(1.1);
-      box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+      border: 2px solid #e5e7eb;
     }
 
     .logo-text {
-      font-size: 1rem;
       font-weight: 600;
-      color: #2c3e50;
-      transition: color 0.3s ease, transform 0.3s ease;
+      color: #2563eb;
+      font-size: 1rem;
       position: relative;
     }
 
-    .logo-link:hover .logo-text {
-      color: #388e3c;
-      transform: translateX(3px);
-    }
-
-    .logo-text::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #388e3c;
-      transition: width 0.3s ease;
-    }
-
-    .logo-link:hover .logo-text::after {
-      width: 100%;
+    .logo-text::before {
+      content: "← ";
+      font-size: 1.1rem;
+      color: #1e40af;
     }
 
     header h1 {
       text-align: center;
-      margin-top: 30px;
-      font-size: 2.5rem;
-      color: #2c3e50;
+      font-size: 2.75rem;
+      margin-top: 20px;
+      color: #1e3a8a;
+      font-weight: 700;
     }
 
+    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      gap: 1.8rem;
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
     }
 
     .slot {
-      background: #fff;
+      background: white;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .slot:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     }
 
     .slot img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
       cursor: pointer;
-      display: block;
-      margin-bottom: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .slot img:hover {
+      opacity: 0.95;
     }
 
     .caption {
-      padding: 0.5rem 1rem 1rem 1rem;
+      padding: 1rem;
       text-align: center;
       font-size: 0.95rem;
-      color: #34495e;
+      color: #374151;
       white-space: pre-line;
     }
 
+    /* Lightbox Viewer */
     .lightbox {
       display: none;
       position: fixed;
       z-index: 9999;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.9);
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
+      animation: fadeIn 0.4s ease;
     }
 
     .lightbox.active {
@@ -134,31 +135,36 @@
     }
 
     .lightbox img {
-      max-width: 90%;
+      max-width: 92%;
       max-height: 80vh;
       border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .close-btn,
+    .arrow {
+      position: absolute;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      user-select: none;
     }
 
     .close-btn {
-      position: absolute;
       top: 20px;
       right: 30px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
     }
 
     .arrow {
-      position: absolute;
       top: 50%;
-      font-size: 3rem;
-      color: white;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.5rem 0.8rem;
       border-radius: 50%;
-      cursor: pointer;
-      user-select: none;
       transform: translateY(-50%);
+    }
+
+    .arrow:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     .arrow.left {
@@ -169,22 +175,23 @@
       right: 30px;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 1.8rem;
-        margin-top: 20px;
+        font-size: 2rem;
       }
 
-      .caption {
-        font-size: 0.85rem;
+      .logo-text {
+        font-size: 0.9rem;
       }
 
       .arrow {
-        font-size: 2.2rem;
-      }
-
-      .logo-link .logo-text {
-        font-size: 0.9rem;
+        font-size: 2rem;
       }
     }
 
@@ -197,117 +204,116 @@
 </head>
 <body>
 
-<!-- Clickable Logo with Back to Home -->
-<div class="logo-container">
-  <a href="home.html" class="logo-link" title="Back to Home">
-    <img src="logo.jpg" alt="Logo">
-    <span class="logo-text">← Back to Home</span>
-  </a>
-</div>
-
-<!-- Title -->
-<header>
-  <h1>Youth Council Choir Gallery</h1>
-</header>
-
-<!-- Gallery Section -->
-<section class="gallery">
-  <div class="slot">
-    <img src="im1.jpg" onclick="openAlbum(0)">
-    <div class="caption">
-      Christ be our light, shine in our hearts, shine through the darkness.  
-      Christ be our light, shine in your church, gathered today  
-      Youth Council at last night's Easter Vigil!  
-      Happy Easter, everyone! Alleluia! Alleluia!
-    </div>
+  <!-- Logo + Back to Home -->
+  <div class="logo-container">
+    <a href="home.html" class="logo-link" title="Back to Home">
+      <img src="logo.jpg" alt="YC Logo">
+      <span class="logo-text">Back to Home</span>
+    </a>
   </div>
 
-  <div class="slot">
-    <img src="im2.jpg" onclick="openAlbum(1)">
-    <div class="caption">
-      "Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!"  
-      MIP Grand choir at last night's Easter Vigil Celebration!
+  <!-- Page Title -->
+  <header>
+    <h1>Youth Council Choir Gallery</h1>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <div class="slot">
+      <img src="im1.jpg" onclick="openAlbum(0)">
+      <div class="caption">
+        Christ be our light, shine in our hearts, shine through the darkness.  
+        Youth Council at last night's Easter Vigil!  
+        Happy Easter, everyone! Alleluia!
+      </div>
     </div>
+
+    <div class="slot">
+      <img src="im2.jpg" onclick="openAlbum(1)">
+      <div class="caption">
+        "Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!"  
+        MIP Grand Choir – Easter Vigil Celebration!
+      </div>
+    </div>
+
+    <div class="slot">
+      <img src="im3.jpg" onclick="openAlbum(2)">
+      <div class="caption">
+        YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶
+      </div>
+    </div>
+
+    <div class="slot">
+      <img src="im4.jpg" onclick="openAlbum(3)">
+      <div class="caption">
+        Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵
+      </div>
+    </div>
+
+    <div class="slot">
+      <img src="im5.jpg" onclick="openAlbum(4)">
+      <div class="caption">
+        YC General Assembly  
+        February 16, 2025 (1985–2025)
+      </div>
+    </div>
+
+    <div class="slot">
+      <img src="im6.jpg" onclick="openAlbum(5)">
+      <div class="caption">
+        Invited to serve at The Feast SM Southmall.  
+        A blessed collaboration in music and faith!
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeAlbum()">&times;</span>
+    <span class="arrow left" onclick="prevImg()">&#10094;</span>
+    <img id="lightbox-img" src="" alt="Gallery image">
+    <span class="arrow right" onclick="nextImg()">&#10095;</span>
   </div>
 
-  <div class="slot">
-    <img src="im3.jpg" onclick="openAlbum(2)">
-    <div class="caption">
-      Youth Council with the 5 PM Priest Presider, Fr. John Gastador. 🙏✝️🎶🎵
-    </div>
-  </div>
+  <!-- JavaScript -->
+  <script>
+    const albums = [
+      ['im1.jpg'],
+      ['im2.jpg'],
+      ['im3.jpg'],
+      ['im4.jpg'],
+      ['im5.jpg', 'im5.2.jpg', 'im5.3.jpg', 'im5.4.jpg', 'im5.5.jpg'],
+      ['im6.jpg', 'im6.2.jpg', 'im6.3.jpg', 'im6.4.jpg', 'im6.5.jpg']
+    ];
 
-  <div class="slot">
-    <img src="im4.jpg" onclick="openAlbum(3)">
-    <div class="caption">
-      Youth Council, upcoming Ash Wednesday and Lenten Season rehearsals! ✝️
-    </div>
-  </div>
+    let currentAlbum = [];
+    let currentIndex = 0;
 
-  <div class="slot">
-    <img src="im5.jpg" onclick="openAlbum(4)">
-    <div class="caption">
-      YC General Assembly Feb 16, 2025 (1985–2025)
-    </div>
-  </div>
+    function openAlbum(index) {
+      currentAlbum = albums[index];
+      currentIndex = 0;
+      updateViewer();
+      document.getElementById("lightbox").classList.add("active");
+    }
 
-  <div class="slot">
-    <img src="im6.jpg" onclick="openAlbum(5)">
-    <div class="caption">
-      Thank you for inviting Youth Council Choir to serve at The Feast SM Southmall.  
-      It's our pleasure to join The Feast SM Southmall in serving a common purpose!  
-      May God bless you all.
-    </div>
-  </div>
-</section>
+    function closeAlbum() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
 
-<!-- Lightbox Viewer -->
-<div class="lightbox" id="lightbox">
-  <span class="close-btn" onclick="closeAlbum()">&times;</span>
-  <span class="arrow left" onclick="prevImg()">&#10094;</span>
-  <img id="lightbox-img" src="" alt="lightbox image">
-  <span class="arrow right" onclick="nextImg()">&#10095;</span>
-</div>
+    function updateViewer() {
+      document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+    }
 
-<!-- JavaScript -->
-<script>
-  const albums = [
-    ['im1.jpg'],
-    ['im2.jpg'],
-    ['im3.jpg'],
-    ['im4.jpg'],
-    ['im5.jpg', 'im5.2.jpg', 'im5.3.jpg', 'im5.4.jpg', 'im5.5.jpg'],
-    ['im6.jpg', 'im6.2.jpg', 'im6.3.jpg', 'im6.4.jpg', 'im6.5.jpg']
-  ];
+    function nextImg() {
+      currentIndex = (currentIndex + 1) % currentAlbum.length;
+      updateViewer();
+    }
 
-  let currentAlbum = [];
-  let currentIndex = 0;
-
-  function openAlbum(index) {
-    currentAlbum = albums[index];
-    currentIndex = 0;
-    updateViewer();
-    document.getElementById("lightbox").classList.add("active");
-  }
-
-  function closeAlbum() {
-    document.getElementById("lightbox").classList.remove("active");
-  }
-
-  function updateViewer() {
-    document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
-  }
-
-  function nextImg() {
-    currentIndex = (currentIndex + 1) % currentAlbum.length;
-    updateViewer();
-  }
-
-  function prevImg() {
-    currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
-    updateViewer();
-  }
-</script>
+    function prevImg() {
+      currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+      updateViewer();
+    }
+  </script>
 
 </body>
 </html>
