@@ -68,39 +68,37 @@
     .nav-links td {
       text-align: center;
       padding: 14px 10px;
-      transition: background 0.3s ease;
     }
 
     .nav-links a {
+      position: relative;
+      display: inline-block;
       text-decoration: none;
       color: white;
       font-weight: 600;
-      position: relative;
-      padding: 8px 15px;
+      padding: 8px 10px;
       transition: color 0.3s ease;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 3px;
-      width: 0;
-      background-color: #ffcc00;
+      left: 50%;
+      bottom: 4px;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      background-color: #00cc66;
       transition: width 0.3s ease;
-    }
-
-    .nav-links td:hover {
-      background-color: #555;
+      border-radius: 1px;
     }
 
     .nav-links td:hover a {
-      color: #ffcc00;
+      color: #00cc66;
     }
 
     .nav-links td:hover a::after {
-      width: 100%;
+      width: 80%;
     }
 
     /* Slide section */
@@ -143,7 +141,7 @@
     }
 
     .overlay a {
-      color: #a60000;
+      color: #00cc66;
       background-color: white;
       padding: 14px 30px;
       font-size: 20px;
@@ -155,7 +153,7 @@
     }
 
     .overlay a:hover {
-      background-color: #a60000;
+      background-color: #00cc66;
       color: white;
       transform: scale(1.05);
     }
