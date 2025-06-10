@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Youth Council Choir – 2025 Calendar</title>
+  <style>
+    :root {
+      --primary: #4b6cb7;
+      --secondary: #182848;
+      --highlight: #b8e994; /* light green */
+      --bg: #f3f4f6;
+      --text: #333;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-link {
+      display: inline-block;
+      margin-right: 15px;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-link img {
+      height: 50px;
+      width: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+      cursor: pointer;
+    }
+
+    header a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--secondary);
+    }
+
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .month {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .month:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .month-name {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+    }
+
+    .day {
+      padding: 8px 0;
+      border-radius: 50%;
+      position: relative;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .blank {
+      visibility: hidden;
+    }
+
+    .event {
+      background-color: var(--highlight);
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 8px 2px rgba(0, 150, 0, 0.25);
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .day:hover .tooltip {
+      display: block;
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .tooltip {
+        font-size: 0.65rem;
+        max-width: 140px;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="home.html" class="logo-link" title="Back to Home">
+      <img src="logo.jpg" alt="Logo" />
+    </a>
+    <a href="home.html">Youth Council Choir</a>
+  </header>
+
+  <h1>2025 Calendar</h1>
+  <div id="calendar"></div>
+
+  <script>
+    const events = {
+      "2025-01-01": "Solemnity of Mary, Mother of God",
+      "2025-01-06": "Epiphany",
+      "2025-02-02": "Presentation of the Lord",
+      "2025-03-19": "Solemnity of St. Joseph",
+      "2025-03-25": "Annunciation of the Lord",
+      "2025-06-08": "Pentecost Sunday",
+      "2025-06-12": "Zumba with Zin Campo Cantos – 7am",
+      "2025-06-24": "Nativity of St. John the Baptist",
+      "2025-06-29": "Solemnity of Sts. Peter and Paul",
+      "2025-08-15": "Assumption of Mary",
+      "2025-11-01": "All Saints’ Day",
+      "2025-11-02": "All Souls’ Day",
+      "2025-12-08": "Immaculate Conception",
+      "2025-12-24": "Christmas Vigil",
+      "2025-12-25": "Christmas Day"
+    };
+
+    function isSunday(date) {
+      return date.getDay() === 0;
+    }
+
+    function isFirstSaturday(date) {
+      return date.getDay() === 6 && date.getDate() <= 7;
+    }
+
+    function generateCalendar(year) {
+      const calendar = document.getElementById("calendar");
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+      for (let m = 0; m < 12; m++) {
+        const month = document.createElement("div");
+        month.className = "month";
+
+        const title = document.createElement("div");
+        title.className = "month-name";
+        title.textContent = monthNames[m];
+        month.appendChild(title);
+
+        const header = document.createElement("div");
+        header.className = "weekdays";
+        weekDays.forEach(day => {
+          const cell = document.createElement("div");
+          cell.textContent = day;
+          header.appendChild(cell);
+        });
+        month.appendChild(header);
+
+        const daysGrid = document.createElement("div");
+        daysGrid.className = "days";
+
+        const firstDay = new Date(year, m, 1).getDay();
+        const daysInMonth = new Date(year, m + 1, 0).getDate();
+
+        for (let b = 0; b < firstDay; b++) {
+          const blank = document.createElement("div");
+          blank.className = "day blank";
+          daysGrid.appendChild(blank);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const date = new Date(year, m, d);
+          const dateStr = `${year}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+
+          const dayEl = document.createElement("div");
+          dayEl.className = "day";
+          dayEl.textContent = d;
+
+          let tooltipText = "";
+
+          if (events[dateStr]) {
+            tooltipText = events[dateStr];
+          } else if (isSunday(date)) {
+            tooltipText = "Sunday Mass – 5pm";
+          } else if (isFirstSaturday(date)) {
+            tooltipText = "First Saturday Mass – 6am";
+          }
+
+          if (tooltipText) {
+            dayEl.classList.add("event");
+            const tooltip = document.createElement("div");
+            tooltip.className = "tooltip";
+            tooltip.textContent = tooltipText;
+            dayEl.appendChild(tooltip);
+          }
+
+          daysGrid.appendChild(dayEl);
+        }
+
+        month.appendChild(daysGrid);
+        calendar.appendChild(month);
+      }
+    }
+
+    generateCalendar(2025);
+  </script>
+
+</body>
+</html>
