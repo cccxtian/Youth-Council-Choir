@@ -11,33 +11,48 @@
       padding: 0;
     }
 
-    body {
+    body, html {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-      padding: 2rem;
     }
 
-    .top-bar {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 30px;
+      background-image: url('bg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 220px;
+      color: white;
     }
 
-    .logo {
-      height: 120px;
-      width: 120px;
+    .header-logo img {
       border-radius: 50%;
-      object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border: 4px solid white;
     }
 
-    .logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    .header-text {
+      margin-left: 30px;
     }
 
+    .header-text h1 {
+      font-size: 48px;
+      margin: 0;
+      font-weight: 800;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .header-text h2 {
+      font-size: 24px;
+      margin-top: 10px;
+      font-weight: 400;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    /* Gallery styles */
     header {
       text-align: center;
       margin-top: 30px;
@@ -55,6 +70,7 @@
       gap: 2rem;
       max-width: 1200px;
       margin: 2rem auto;
+      padding: 0 2rem;
     }
 
     .slot {
@@ -75,6 +91,8 @@
       height: 200px;
       object-fit: cover;
       cursor: pointer;
+      display: block; /* removes inline spacing */
+      margin-bottom: 0; /* optional, ensures no gap */
     }
 
     .caption {
@@ -138,18 +156,33 @@
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-        margin-top: 150px;
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
 
-      .logo {
-        height: 90px;
-        width: 90px;
+      .header-text {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      .header-text h1 {
+        font-size: 32px;
+      }
+
+      .header-text h2 {
+        font-size: 18px;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+        margin-top: 30px;
       }
 
       .caption {
         font-size: 0.85rem;
+        padding-top: 0.5rem;
       }
     }
 
@@ -166,14 +199,20 @@
 </head>
 <body>
 
-<!-- Logo (Home Button) -->
-<div class="top-bar">
-  <a href="home.html">
-    <img src="logo.jpg" alt="Logo" class="logo">
-  </a>
+<!-- Copied Header from Homepage -->
+<div class="header">
+  <div class="header-logo">
+    <a href="home.html">
+      <img src="logo.jpg" width="170" height="170" alt="Church Logo">
+    </a>
+  </div>
+  <div class="header-text">
+    <h1>Youth Council Choir</h1>
+    <h2>Mary Immaculate Parish - Nature's Church Domain</h2>
+  </div>
 </div>
 
-<!-- Title -->
+<!-- Page Title -->
 <header>
   <h1>Youth Council's Choir Gallery</h1>
 </header>
@@ -237,7 +276,7 @@
   <span class="arrow right" onclick="nextImg()">&#10095;</span>
 </div>
 
-<!-- JavaScript -->
+<!-- JavaScript for Lightbox -->
 <script>
   const albums = [
     ['im1.jpg'],
