@@ -57,17 +57,17 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
-    /* Navigation styling */
+    /* Slim & elegant Navigation styling */
     .nav-links {
       width: 100%;
-      background-color: #333;
-      font-size: 18px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      background-color: #2e2e2e;
+      font-size: 17px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     }
 
     .nav-links td {
       text-align: center;
-      padding: 14px 10px;
+      padding: 10px 8px;
     }
 
     .nav-links a {
@@ -76,15 +76,16 @@
       text-decoration: none;
       color: white;
       font-weight: 600;
-      padding: 8px 10px;
-      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+      padding: 6px 10px;
+      transition: color 0.25s ease;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
       left: 50%;
-      bottom: 4px;
+      bottom: 3px;
       transform: translateX(-50%);
       width: 0%;
       height: 2px;
@@ -98,7 +99,7 @@
     }
 
     .nav-links td:hover a::after {
-      width: 80%;
+      width: 70%;
     }
 
     /* Slide section */
@@ -171,7 +172,7 @@
       margin: 0;
     }
 
-    /* Responsive adjustments only for size */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
@@ -203,6 +204,10 @@
 
       .nav-links {
         font-size: 16px;
+      }
+
+      .nav-links td {
+        padding: 8px 4px;
       }
     }
   </style>
