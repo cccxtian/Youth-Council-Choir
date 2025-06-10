@@ -17,47 +17,54 @@
 
     .container {
       padding: 30px;
-      min-height: calc(100vh - 300px);
+      min-height: calc(100vh - 300px); /* Full height minus header/footer */
     }
 
     .section-titles {
       display: flex;
       gap: 40px;
       margin-bottom: 15px;
-      flex-wrap: wrap;
     }
 
-    .news-title {
-      flex: 2.5;
+    .section-title:first-child {
+      flex: 2.5; /* match news-card */
       font-size: 36px;
       font-weight: bold;
       color: #a60000;
       text-align: center;
       margin: 0;
+      line-height: 1.2;
     }
 
-    .bday-title {
-      flex: 1;
+    .section-title:last-child {
+      flex: 1; /* match bday-card */
       font-size: 36px;
       font-weight: bold;
       color: #a60000;
       text-align: center;
       margin: 0;
+      line-height: 1.2;
     }
 
     .section {
       display: flex;
       justify-content: space-between;
       gap: 40px;
-      flex-wrap: wrap;
+      margin-top: 0;
+      height: 100%;
+      align-items: stretch;
     }
 
+    /* Increased flex for news */
     .news-card {
       flex: 2.5;
       background-color: white;
       border-radius: 10px;
       padding: 20px 30px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .bday-card {
@@ -66,7 +73,10 @@
       border-radius: 10px;
       padding: 20px 30px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
     }
 
     .slide-content {
@@ -99,7 +109,11 @@
     .news-slider,
     .bday-slider {
       width: 100%;
-      height: 420px;
+      height: 420px; /* Adjusted to fit larger images */
+    }
+
+    .bdaySlide font {
+      text-align: center;
     }
 
     /* Responsive */
@@ -109,14 +123,22 @@
         gap: 10px;
       }
 
-      .news-title,
-      .bday-title {
-        font-size: 28px;
+      .section-title:first-child,
+      .section-title:last-child {
         flex: none;
+        font-size: 28px;
       }
 
       .section {
         flex-direction: column;
+      }
+
+      .news-card, .bday-card {
+        height: auto;
+      }
+
+      .news-slider, .bday-slider {
+        height: auto;
       }
 
       .slide-content img,
@@ -156,8 +178,8 @@
 <!-- Titles -->
 <div class="container">
   <div class="section-titles">
-    <h2 class="news-title">Latest News & Updates</h2>
-    <h2 class="bday-title">Birthday Corner</h2>
+    <h2 class="section-title">Latest News & Updates</h2>
+    <h2 class="section-title">Birthday Corner</h2>
   </div>
 
   <div class="section">
@@ -166,7 +188,7 @@
       <table class="news-slider">
         <tr>
           <td width="10%" align="center">
-            <button class="slider-nav" onclick="prevSlide()">❮</button>
+            <button class="slider-nav" onclick="prevSlide()">&#10094;</button>
           </td>
           <td width="80%">
             <div id="slider">
@@ -176,7 +198,7 @@
                   <div>
                     <font size="4">
                       <b>Join us this June 12, 2025 for Zumba for a Cause!</b><br><br>
-                      Get ready to dance your heart out and make a difference with our amazing instructor, Zin Camper Cantos!<br><br>
+                      Get ready to dance your heart out and make a difference with our amazing instructor, Zin Camper Cantos! Let’s move, sweat, and support a great cause together. Don’t miss out—bring your friends and family!<br><br>
                       <a href="#"><font color="#a60000"><b>Read more...</b></font></a>
                     </font>
                   </div>
@@ -188,7 +210,7 @@
                   <div>
                     <font size="4">
                       <b>Upcoming Youth Mass This July!</b><br><br>
-                      Celebrate faith, music, and fellowship during our Youth Mass.<br><br>
+                      Celebrate faith, music, and fellowship during our Youth Mass. Get involved, sing with us, and strengthen our community ties. 🕊️<br><br>
                       <a href="#"><font color="#a60000"><b>Read more...</b></font></a>
                     </font>
                   </div>
@@ -197,7 +219,7 @@
             </div>
           </td>
           <td width="10%" align="center">
-            <button class="slider-nav" onclick="nextSlide()">❯</button>
+            <button class="slider-nav" onclick="nextSlide()">&#10095;</button>
           </td>
         </tr>
       </table>
@@ -208,7 +230,7 @@
       <table class="bday-slider">
         <tr>
           <td width="10%" align="center">
-            <button class="slider-nav" onclick="prevBdaySlide()">❮</button>
+            <button class="slider-nav" onclick="prevBdaySlide()">&#10094;</button>
           </td>
           <td width="80%" align="center">
             <div id="bdaySlider">
@@ -223,7 +245,7 @@
             </div>
           </td>
           <td width="10%" align="center">
-            <button class="slider-nav" onclick="nextBdaySlide()">❯</button>
+            <button class="slider-nav" onclick="nextBdaySlide()">&#10095;</button>
           </td>
         </tr>
       </table>
