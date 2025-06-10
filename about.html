@@ -5,22 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Youth Council Choir - About Us</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Smooth transitions and elevation */
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .fade-in {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom bullet style */
+    ul.list-disc li::marker {
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    ol.list-decimal li::marker {
+      color: #2563eb;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-white text-gray-800 font-sans leading-relaxed tracking-wide fade-in">
 
   <!-- Hero Image with Logo -->
-  <section class="relative h-96 overflow-hidden">
+  <section class="relative h-96 overflow-hidden shadow-md">
     <img src="ab1.jpg" alt="Youth Council Choir" class="object-cover w-full h-full" />
-    
+
     <!-- Clickable Logo in Top-Left Corner -->
-    <a href="home.html" class="absolute top-5 left-5 z-20 flex items-center space-x-2 bg-white/70 px-2 py-1 rounded-full shadow hover:bg-white transition">
-      <img src="logo.jpg" alt="YC Logo" class="w-10 h-10 rounded-full border border-gray-300" />
+    <a href="home.html" class="absolute top-5 left-5 z-20 flex items-center space-x-2 bg-white/70 px-2 py-1 rounded-full shadow-md hover:bg-white transition duration-300 ease-in-out hover-lift">
+      <img src="logo.jpg" alt="YC Logo" class="w-10 h-10 rounded-full border border-gray-300 shadow-sm" />
       <span class="text-sm font-medium text-gray-800">Youth Council Choir</span>
     </a>
 
     <!-- Hero Text -->
     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-center px-4">
-      <h1 class="text-white text-4xl md:text-5xl font-bold">
+      <h1 class="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
         Youth Council Choir<br />
         Mary Immaculate Parish – Nature Church
       </h1>
@@ -28,68 +61,64 @@
   </section>
 
   <!-- Introduction -->
-  <section class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-4">Who is the Youth Council Choir?</h2>
-    <p class="mb-6 leading-relaxed text-justify">
-      The origins of the Youth Council (YC) choir at Mary Immaculate Parish (MIP) trace back to the early 1980s. Between 1983 and 1984, Most Rev. Roberto Calara Mallari DD, the current Bishop of the Diocese of Tarlac, initiated efforts to gather the parish's youth. By 1985, Rev. Fr. Pierino Rogliardi continued this mission by introducing the Focolare Movement to a group of young parishioners, marking the official formation of the Youth Council.
+  <section class="max-w-5xl mx-auto px-4 py-12 fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-blue-700">Who is the Youth Council Choir?</h2>
+    <p class="mb-6 text-justify">
+      The origins of the Youth Council (YC) choir at Mary Immaculate Parish (MIP) trace back to the early 1980s...
     </p>
-    <p class="mb-6 leading-relaxed text-justify">
-      Prominent early members included Bro. Joel Abellanosa and Rene Ferrer. Over time, leadership transitioned to Yuri Alafriz and the succeeding Youth Council Primes, who played pivotal roles in expanding YC's influence. Singing, acting, and dancing became central to YC's activities, encapsulated in their cultural showcases called "Langit-Langitan."
+    <p class="mb-6 text-justify">
+      Prominent early members included Bro. Joel Abellanosa and Rene Ferrer...
     </p>
-    <p class="mb-6 leading-relaxed text-justify">
-      The evolution of YC took an artistic turn with the emergence of Apostles of Christ Thru Service (ACTS), a group focused on enhancing the parish's aesthetics by displaying the monthly Words of Life, drawn from the Focolare Movement. ACTS later integrated chorister roles, solidifying their musical contributions to the parish.
+    <p class="mb-6 text-justify">
+      The evolution of YC took an artistic turn with the emergence of Apostles of Christ Thru Service (ACTS)...
     </p>
-    <p class="leading-relaxed text-justify">
-      Today, the Youth Council Choir remains a vital part of Mary Immaculate Parish, engaging 30+ attendees at every Sunday service and having mandatory weekly sectionals and rehearsals. Beyond music, YC fosters spiritual growth through monthly Block Rosary gatherings, one-hour vigils in the adoration chapel, sessions reflecting on the Word of Life, and yearly retreats usually in Tagaytay.
+    <p class="text-justify">
+      Today, the Youth Council Choir remains a vital part of Mary Immaculate Parish...
     </p>
   </section>
 
   <!-- Vision and Mission -->
-  <section class="bg-blue-50 py-10">
+  <section class="bg-blue-50 py-12 fade-in">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">Vision and Mission</h2>
-      <div class="mb-4">
-        <h3 class="font-bold">Mission:</h3>
-        <p class="text-justify">
-          To glorify God and honor the Blessed Virgin Mary through the power of music, nurturing a profound sense of devotion, unity, and service within our parish community.
-        </p>
+      <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">Vision and Mission</h2>
+      <div class="mb-6 bg-white p-6 rounded-xl shadow hover-lift transition duration-300">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">Mission:</h3>
+        <p class="text-justify">To glorify God and honor the Blessed Virgin Mary through the power of music...</p>
       </div>
-      <div>
-        <h3 class="font-bold">Vision:</h3>
-        <p class="text-justify">
-          To serve as a guiding light of Marian spirituality within our parish, igniting souls through sacred music and cultivating a community of song and prayer guided by the virtues of Our Mother Mary and the principles of Focolare spirituality.
-        </p>
+      <div class="bg-white p-6 rounded-xl shadow hover-lift transition duration-300">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">Vision:</h3>
+        <p class="text-justify">To serve as a guiding light of Marian spirituality within our parish...</p>
       </div>
     </div>
   </section>
 
   <!-- Activities and Contributions -->
-  <section class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Activities and Contributions</h2>
-    <ul class="list-disc pl-6 space-y-2">
-      <li><strong>Liturgical Services:</strong> Chorister services for weddings, funeral masses, and regular Sunday services.</li>
-      <li><strong>Spiritual Formation:</strong> Monthly Word of Life reflections, Block Rosary devotions, and retreats with parish priests and seminarians.</li>
-      <li><strong>Parish Outreach:</strong> Participating in feeding programs, annual sports festivals, and community-building events.</li>
-      <li><strong>Music Ministry:</strong> Weekly rehearsals, monthly vigil services, and collaboration with other parish choirs.</li>
+  <section class="max-w-5xl mx-auto px-4 py-12 fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-blue-700">Activities and Contributions</h2>
+    <ul class="list-disc pl-6 space-y-3">
+      <li><strong>Liturgical Services:</strong> Chorister services for weddings, funeral masses...</li>
+      <li><strong>Spiritual Formation:</strong> Monthly Word of Life reflections...</li>
+      <li><strong>Parish Outreach:</strong> Participating in feeding programs...</li>
+      <li><strong>Music Ministry:</strong> Weekly rehearsals, monthly vigil services...</li>
     </ul>
   </section>
 
   <!-- Achievements -->
-  <section class="bg-gray-100 py-10">
+  <section class="bg-gray-100 py-12 fade-in">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6">Profound Achievements</h2>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>Top 5 placement in the "Sound of Christmas 2015" Open Category competition held in Southmall, Las Piñas.</li>
-        <li>4th place in the Villar Foundation's chorale competition 2024, honoring San Ezekiel Moreno.</li>
+      <h2 class="text-3xl font-bold mb-6 text-blue-800">Profound Achievements</h2>
+      <ul class="list-disc pl-6 space-y-3">
+        <li>Top 5 placement in the "Sound of Christmas 2015"... </li>
+        <li>4th place in the Villar Foundation's chorale competition 2024...</li>
         <li>And many more...</li>
       </ul>
     </div>
   </section>
 
   <!-- Future Goals -->
-  <section class="max-w-4xl mx-auto px-4 py-10">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Future Goals</h2>
-    <ol class="list-decimal pl-6 space-y-2">
+  <section class="max-w-4xl mx-auto px-4 py-12 fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-blue-700">Future Goals</h2>
+    <ol class="list-decimal pl-6 space-y-3">
       <li>Greater involvement in choral competitions.</li>
       <li>More chorale clinics to refine their musical excellence.</li>
       <li>Increased collaborations with choirs from other parishes.</li>
@@ -99,20 +128,20 @@
   </section>
 
   <!-- Upcoming Milestones -->
-  <section class="bg-blue-100 py-10">
+  <section class="bg-blue-100 py-12 fade-in">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6">Upcoming Milestones</h2>
-      <ul class="list-disc pl-6 space-y-2">
-        <li><strong>40th Anniversary Celebration:</strong> Scheduled for May 2025, marking four decades of YC's legacy.</li>
-        <li><strong>2025 Parish Fiesta Hermano/Hermana Mayor:</strong> YC will make history as the first choir group to assume this role at Mary Immaculate Parish.</li>
+      <h2 class="text-3xl font-bold mb-6 text-blue-800">Upcoming Milestones</h2>
+      <ul class="list-disc pl-6 space-y-3">
+        <li><strong>40th Anniversary Celebration:</strong> Scheduled for May 2025...</li>
+        <li><strong>2025 Parish Fiesta Hermano/Hermana Mayor:</strong> YC will make history...</li>
       </ul>
     </div>
   </section>
 
   <!-- Additional Participation -->
-  <section class="max-w-4xl mx-auto px-4 py-10">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Additional Participation</h2>
-    <ul class="list-disc pl-6 space-y-2">
+  <section class="max-w-4xl mx-auto px-4 py-12 fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-blue-700">Additional Participation</h2>
+    <ul class="list-disc pl-6 space-y-3">
       <li>World Youth Day</li>
       <li>GENFEST</li>
       <li>International Youth Congress</li>
@@ -122,7 +151,7 @@
   </section>
 
   <!-- Contact Info -->
-  <footer class="bg-gray-200 py-6 text-center text-sm">
+  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-700 fade-in">
     <p>For more information or to connect with YC Core Leaders, please contact the Mary Immaculate Parish Office.</p>
   </footer>
 
