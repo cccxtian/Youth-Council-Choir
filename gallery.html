@@ -123,6 +123,19 @@
       pointer-events: auto;
     }
 
+    .indicator {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #2563eb;
+      color: #fff;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
     .lightbox {
       display: none;
       position: fixed;
@@ -186,12 +199,8 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @media (max-width: 480px) {
@@ -224,43 +233,49 @@
 
   <section class="gallery">
     <div class="slot" onclick="openAlbum(0)">
-      <img src="im1.jpg" />
-      <div class="overlay">Christ be our light, shine in our hearts, shine through the darkness. Youth Council at last night's Easter Vigil! Happy Easter, everyone! Alleluia!</div>
+      <img src="im9.jpg" />
+      <div class="overlay">Youth Council Annual Retreat – May 18, 2025</div>
+      <div class="indicator">9 photos</div>
     </div>
-
     <div class="slot" onclick="openAlbum(1)">
-      <img src="im2.jpg" />
-      <div class="overlay">"Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!" MIP Grand Choir – Easter Vigil Celebration!</div>
+      <img src="im1.jpg" />
+      <div class="overlay">Christ be our light… Easter Vigil – April 20, 2025</div>
+      <div class="indicator">1 photo</div>
     </div>
-
     <div class="slot" onclick="openAlbum(2)">
-      <img src="im7.jpg" />
-      <div class="overlay">Visita Iglesia 2025 – A spiritual pilgrimage through seven churches. ✝️🕊️</div>
+      <img src="im2.jpg" />
+      <div class="overlay">"Si Hesu Kristo’y nabuhay!" – April 20, 2025</div>
+      <div class="indicator">1 photo</div>
     </div>
-
     <div class="slot" onclick="openAlbum(3)">
-      <img src="im3.jpg" />
-      <div class="overlay">YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶</div>
+      <img src="im7.jpg" />
+      <div class="overlay">Visita Iglesia – April 17, 2025</div>
+      <div class="indicator">8 photos</div>
     </div>
-
     <div class="slot" onclick="openAlbum(4)">
-      <img src="im4.jpg" />
-      <div class="overlay">Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵</div>
+      <img src="im3.jpg" />
+      <div class="overlay">YC with Fr. John Gastador – April 1, 2025</div>
+      <div class="indicator">1 photo</div>
     </div>
-
     <div class="slot" onclick="openAlbum(5)">
-      <img src="im5.jpg" />
-      <div class="overlay">YC General Assembly – February 17, 2025 (1985–2025)</div>
+      <img src="im4.jpg" />
+      <div class="overlay">Lenten Rehearsal – March 2, 2025</div>
+      <div class="indicator">1 photo</div>
     </div>
-
     <div class="slot" onclick="openAlbum(6)">
-      <img src="im6.jpg" />
-      <div class="overlay">Invited to serve at The Feast SM Southmall. A blessed collaboration in music and faith!</div>
+      <img src="im5.jpg" />
+      <div class="overlay">YC General Assembly – Feb 16, 2025</div>
+      <div class="indicator">6 photos</div>
     </div>
-
     <div class="slot" onclick="openAlbum(7)">
+      <img src="im6.jpg" />
+      <div class="overlay">Serving at The Feast – Jan 22, 2025</div>
+      <div class="indicator">6 photos</div>
+    </div>
+    <div class="slot" onclick="openAlbum(8)">
       <img src="im8.jpg" />
-      <div class="overlay">Youth Council goes to Enchanted Kingdom – bonding, joy, and memories! 🎢🎠</div>
+      <div class="overlay">Youth Council goes to Enchanted Kingdom – Sept 29, 2024</div>
+      <div class="indicator">6 photos</div>
     </div>
   </section>
 
@@ -273,14 +288,15 @@
 
   <script>
     const albums = [
+      ['im9.jpg','im9.1.jpg','im9.2.jpg','im9.3.jpg','im9.4.jpg','im9.5.jpg','im9.6.jpg','im9.7.jpg','im9.8.jpg'],
       ['im1.jpg'],
       ['im2.jpg'],
-      ['im7.jpg', 'im7.1.jpg', 'im7.2.jpg', 'im7.3.jpg', 'im7.4.jpg', 'im7.5.jpg', 'im7.6.jpg', 'im7.7.jpg'],
+      ['im7.jpg','im7.1.jpg','im7.2.jpg','im7.3.jpg','im7.4.jpg','im7.5.jpg','im7.6.jpg','im7.7.jpg'],
       ['im3.jpg'],
       ['im4.jpg'],
-      ['im5.jpg', 'im5.2.jpg', 'im5.3.jpg', 'im5.4.jpg', 'im5.5.jpg'],
-      ['im6.jpg', 'im6.2.jpg', 'im6.3.jpg', 'im6.4.jpg', 'im6.5.jpg'],
-      ['im8.jpg', 'im8.1.jpg', 'im8.2.jpg', 'im8.3.jpg', 'im8.4.jpg', 'im8.5.jpg']
+      ['im5.jpg','im5.2.jpg','im5.3.jpg','im5.4.jpg','im5.5.jpg','im5.6.jpg'],
+      ['im6.jpg','im6.2.jpg','im6.3.jpg','im6.4.jpg','im6.5.jpg','im6.6.jpg'],
+      ['im8.jpg','im8.1.jpg','im8.2.jpg','im8.3.jpg','im8.4.jpg','im8.5.jpg']
     ];
 
     let currentAlbum = [];
