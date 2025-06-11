@@ -125,15 +125,15 @@
 
     .indicator {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #2563eb;
-      color: #fff;
+      top: 10px;
+      right: 10px;
+      background: #1e40af;
+      color: white;
+      font-size: 0.7rem;
       padding: 4px 10px;
-      font-size: 0.75rem;
-      border-radius: 12px;
+      border-radius: 20px;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 0.9;
     }
 
     .lightbox {
@@ -198,6 +198,23 @@
       color: #ddd;
     }
 
+    .download {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 1.8rem;
+      color: white;
+      text-decoration: none;
+      background: rgba(37, 99, 235, 0.8);
+      padding: 8px 14px;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .download:hover {
+      background: rgba(37, 99, 235, 1);
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -207,11 +224,9 @@
       header h1 {
         font-size: 2rem;
       }
-
       .home-btn {
         font-size: 0.85rem;
       }
-
       .gallery {
         grid-template-columns: 1fr;
       }
@@ -220,6 +235,7 @@
 </head>
 <body>
 
+  <!-- Home Button -->
   <div class="nav">
     <a href="home.html" class="home-btn" title="Go to Home">
       <img src="logo.jpg" alt="Logo" />
@@ -227,62 +243,66 @@
     </a>
   </div>
 
+  <!-- Title -->
   <header>
     <h1>Youth Council Choir Gallery</h1>
   </header>
 
+  <!-- Gallery -->
   <section class="gallery">
     <div class="slot" onclick="openAlbum(0)">
       <img src="im9.jpg" />
-      <div class="overlay">Youth Council Annual Retreat – May 18, 2025</div>
+      <div class="overlay">Youth Council Annual Retreat</div>
       <div class="indicator">9 photos</div>
     </div>
     <div class="slot" onclick="openAlbum(1)">
       <img src="im1.jpg" />
-      <div class="overlay">Christ be our light… Easter Vigil – April 20, 2025</div>
+      <div class="overlay">Christ be our light, shine in our hearts, shine through the darkness. Youth Council at last night's Easter Vigil! Happy Easter, everyone! Alleluia!</div>
       <div class="indicator">1 photo</div>
     </div>
     <div class="slot" onclick="openAlbum(2)">
       <img src="im2.jpg" />
-      <div class="overlay">"Si Hesu Kristo’y nabuhay!" – April 20, 2025</div>
+      <div class="overlay">"Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!" MIP Grand Choir – Easter Vigil Celebration!</div>
       <div class="indicator">1 photo</div>
     </div>
     <div class="slot" onclick="openAlbum(3)">
       <img src="im7.jpg" />
-      <div class="overlay">Visita Iglesia – April 17, 2025</div>
+      <div class="overlay">Visita Iglesia</div>
       <div class="indicator">8 photos</div>
     </div>
     <div class="slot" onclick="openAlbum(4)">
       <img src="im3.jpg" />
-      <div class="overlay">YC with Fr. John Gastador – April 1, 2025</div>
+      <div class="overlay">YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶</div>
       <div class="indicator">1 photo</div>
     </div>
     <div class="slot" onclick="openAlbum(5)">
       <img src="im4.jpg" />
-      <div class="overlay">Lenten Rehearsal – March 2, 2025</div>
+      <div class="overlay">Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵</div>
       <div class="indicator">1 photo</div>
     </div>
     <div class="slot" onclick="openAlbum(6)">
       <img src="im5.jpg" />
-      <div class="overlay">YC General Assembly – Feb 16, 2025</div>
+      <div class="overlay">YC General Assembly – February 16, 2025 (1985–2025)</div>
       <div class="indicator">6 photos</div>
     </div>
     <div class="slot" onclick="openAlbum(7)">
       <img src="im6.jpg" />
-      <div class="overlay">Serving at The Feast – Jan 22, 2025</div>
+      <div class="overlay">Invited to serve at The Feast SM Southmall. A blessed collaboration in music and faith!</div>
       <div class="indicator">6 photos</div>
     </div>
     <div class="slot" onclick="openAlbum(8)">
       <img src="im8.jpg" />
-      <div class="overlay">Youth Council goes to Enchanted Kingdom – Sept 29, 2024</div>
+      <div class="overlay">Youth Council goes to Enchanted Kingdom</div>
       <div class="indicator">6 photos</div>
     </div>
   </section>
 
+  <!-- Lightbox Viewer -->
   <div class="lightbox" id="lightbox">
     <span class="close-btn" onclick="closeAlbum()">&times;</span>
     <span class="arrow left" onclick="prevImg()">&#10094;</span>
     <img id="lightbox-img" src="" alt="Gallery image" />
+    <a id="download-btn" class="download" href="#" download title="Download image">&#128190;</a>
     <span class="arrow right" onclick="nextImg()">&#10095;</span>
   </div>
 
@@ -314,7 +334,9 @@
     }
 
     function updateViewer() {
-      document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+      const imgSrc = currentAlbum[currentIndex];
+      document.getElementById("lightbox-img").src = imgSrc;
+      document.getElementById("download-btn").href = imgSrc;
     }
 
     function nextImg() {
