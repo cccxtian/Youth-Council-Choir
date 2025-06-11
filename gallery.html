@@ -72,6 +72,7 @@
     }
 
     .slot {
+      position: relative;
       background: white;
       border-radius: 16px;
       overflow: hidden;
@@ -89,19 +90,31 @@
       height: 220px;
       object-fit: cover;
       cursor: pointer;
-      transition: opacity 0.3s ease;
+      display: block;
     }
 
-    .slot img:hover {
-      opacity: 0.95;
-    }
-
-    .caption {
-      padding: 1rem;
+    .caption-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      color: #374151;
-      font-size: 0.92rem;
+      padding: 1rem;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      font-weight: 500;
       white-space: pre-line;
+    }
+
+    .slot:hover .caption-overlay {
+      opacity: 1;
     }
 
     /* Lightbox */
@@ -187,6 +200,11 @@
       .home-btn {
         font-size: 0.85rem;
       }
+
+      .caption-overlay {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -208,8 +226,8 @@
   <!-- Gallery -->
   <section class="gallery">
     <div class="slot">
-      <img src="im1.jpg" onclick="openAlbum(0)" />
-      <div class="caption">
+      <img src="im1.jpg" onclick="openAlbum(0)" alt="Gallery Image 1" />
+      <div class="caption-overlay">
         Christ be our light, shine in our hearts, shine through the darkness.  
         Youth Council at last night's Easter Vigil!  
         Happy Easter, everyone! Alleluia!
@@ -217,38 +235,38 @@
     </div>
 
     <div class="slot">
-      <img src="im2.jpg" onclick="openAlbum(1)" />
-      <div class="caption">
+      <img src="im2.jpg" onclick="openAlbum(1)" alt="Gallery Image 2" />
+      <div class="caption-overlay">
         "Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!"  
         MIP Grand Choir – Easter Vigil Celebration!
       </div>
     </div>
 
     <div class="slot">
-      <img src="im3.jpg" onclick="openAlbum(2)" />
-      <div class="caption">
+      <img src="im3.jpg" onclick="openAlbum(2)" alt="Gallery Image 3" />
+      <div class="caption-overlay">
         YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶
       </div>
     </div>
 
     <div class="slot">
-      <img src="im4.jpg" onclick="openAlbum(3)" />
-      <div class="caption">
+      <img src="im4.jpg" onclick="openAlbum(3)" alt="Gallery Image 4" />
+      <div class="caption-overlay">
         Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵
       </div>
     </div>
 
     <div class="slot">
-      <img src="im5.jpg" onclick="openAlbum(4)" />
-      <div class="caption">
+      <img src="im5.jpg" onclick="openAlbum(4)" alt="Gallery Image 5" />
+      <div class="caption-overlay">
         YC General Assembly  
         February 16, 2025 (1985–2025)
       </div>
     </div>
 
     <div class="slot">
-      <img src="im6.jpg" onclick="openAlbum(5)" />
-      <div class="caption">
+      <img src="im6.jpg" onclick="openAlbum(5)" alt="Gallery Image 6" />
+      <div class="caption-overlay">
         Invited to serve at The Feast SM Southmall.  
         A blessed collaboration in music and faith!
       </div>
