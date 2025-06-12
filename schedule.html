@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Youth Council Choir – 2025 Calendar</title>
   <style>
     :root {
@@ -12,11 +12,21 @@
       --bg: #f3f4f6;
       --text: #ffffff;
       --fade-in: fade-in 0.8s ease-out forwards;
+      --glass: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --blur: blur(16px);
+      --glow: 0 0 12px var(--highlight);
     }
 
     @keyframes fade-in {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 rgba(184, 233, 148, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(184, 233, 148, 0.7); }
+      100% { box-shadow: 0 0 0 rgba(184, 233, 148, 0.4); }
     }
 
     * {
@@ -28,10 +38,10 @@
       padding: 20px;
       font-family: 'Segoe UI', sans-serif;
       color: var(--text);
-      animation: var(--fade-in);
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
                   url('bg1.jpg') no-repeat center center fixed;
       background-size: cover;
+      animation: var(--fade-in);
     }
 
     header {
@@ -42,27 +52,28 @@
       animation: var(--fade-in);
     }
 
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  color: var(--highlight); /* ← updated to match month color */
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 6px 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  backdrop-filter: blur(8px);
-}
-
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--highlight);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      background: var(--glass);
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
+    }
 
     .logo-link:hover {
       background-color: var(--highlight);
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      color: #000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
 
     .logo-link img {
@@ -76,37 +87,40 @@
       text-align: center;
       margin-bottom: 40px;
       color: var(--highlight);
-      font-size: 2.3rem;
+      font-size: 2.6rem;
       animation: var(--fade-in);
-      text-shadow: 2px 2px 6px #000;
+      text-shadow: 2px 2px 8px #000;
+      letter-spacing: 1px;
     }
 
     #calendar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
       animation: var(--fade-in);
     }
 
     .month {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: var(--glass);
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
       padding: 20px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(12px);
+      transition: all 0.4s ease;
+      backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
       color: #fff;
+      transform: perspective(800px) rotateX(0deg);
     }
 
     .month:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.7);
     }
 
     .month-name {
       text-align: center;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--highlight);
       margin-bottom: 15px;
       text-shadow: 1px 1px 3px #000;
@@ -127,11 +141,11 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       text-align: center;
-      gap: 4px;
+      gap: 6px;
     }
 
     .day {
-      padding: 8px;
+      padding: 10px;
       border-radius: 50%;
       position: relative;
       font-size: 0.85rem;
@@ -139,6 +153,7 @@
       background-color: transparent;
       color: #fff;
       text-shadow: 1px 1px 3px #000;
+      cursor: default;
     }
 
     .blank {
@@ -148,15 +163,16 @@
     .event {
       background-color: var(--highlight);
       font-weight: bold;
-      cursor: pointer;
       color: #000;
       text-shadow: none;
+      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2.5s infinite;
     }
 
     .event:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 10px rgba(0, 150, 0, 0.3);
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
     }
 
     .tooltip {
@@ -169,7 +185,7 @@
       color: #fff;
       padding: 6px 10px;
       border-radius: 6px;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       white-space: nowrap;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -186,6 +202,15 @@
         font-size: 0.65rem;
         max-width: 140px;
         white-space: normal;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .logo-link {
+        font-size: 0.9rem;
+        padding: 4px 10px;
       }
     }
   </style>
@@ -302,6 +327,5 @@
 
     generateCalendar(2025);
   </script>
-
 </body>
 </html>
