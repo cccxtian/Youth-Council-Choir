@@ -6,29 +6,20 @@
   <title>Youth Council Choir - About Us</title>
   <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* Smooth transitions and elevation */
     .hover-lift:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .fade-in {
-      animation: fadeInUp 1s ease-in-out;
+    .sticky-nav {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 50;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Custom bullet style */
     ul.list-disc li::marker {
       color: #3b82f6;
       font-weight: bold;
@@ -40,20 +31,19 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed tracking-wide fade-in">
+<body class="bg-white text-gray-800 font-sans leading-relaxed tracking-wide">
 
-  <!-- Hero Image with Logo -->
+  <!-- Sticky Back Button -->
+  <a href="home.html" class="sticky-nav flex items-center gap-3 bg-white/90 px-3 py-2 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 hover:bg-white transition duration-300 ease-in-out hover-lift group">
+    <img src="logo.jpg" alt="YC Logo" class="w-9 h-9 rounded-full border border-gray-300 shadow-sm transition duration-300 group-hover:scale-105" />
+    <span class="text-base font-semibold text-gray-700 group-hover:text-blue-700 transition">← Back to Home</span>
+  </a>
+
+  <!-- Hero Image -->
   <section class="relative h-96 overflow-hidden shadow-md">
     <img src="ab1.jpg" alt="Youth Council Choir" class="object-cover w-full h-full" />
-
-    <!-- Clickable Logo in Top-Left Corner -->
-   <a href="home.html" class="absolute top-5 left-5 z-20 flex items-center gap-3 bg-white/80 px-3 py-2 rounded-full shadow-md backdrop-blur-sm border border-gray-200 hover:bg-white transition duration-300 ease-in-out hover-lift group">
-  <img src="logo.jpg" alt="YC Logo" class="w-9 h-9 rounded-full border border-gray-300 shadow-sm transition duration-300 group-hover:scale-105" />
-  <span class="text-base font-semibold text-gray-700 group-hover:text-blue-700 transition">← Back to Home</span>
-  </a>
-    <!-- Hero Text -->
     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-center px-4">
-      <h1 class="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
+      <h1 class="text-white text-4xl md:text-5xl font-bold drop-shadow-lg" data-aos="fade-down">
         Youth Council Choir<br />
         Mary Immaculate Parish – Nature Church
       </h1>
@@ -61,41 +51,41 @@
   </section>
 
   <!-- Introduction -->
-  <section class="max-w-5xl mx-auto px-4 py-12 fade-in">
+  <section class="max-w-5xl mx-auto px-4 py-16" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-blue-700">Who is the Youth Council Choir?</h2>
-    <p class="mb-6 text-justify">
+    <p class="mb-6 text-justify text-lg">
       The origins of the Youth Council (YC) choir at Mary Immaculate Parish (MIP) trace back to the early 1980s...
     </p>
-    <p class="mb-6 text-justify">
+    <p class="mb-6 text-justify text-lg">
       Prominent early members included Bro. Joel Abellanosa and Rene Ferrer...
     </p>
-    <p class="mb-6 text-justify">
+    <p class="mb-6 text-justify text-lg">
       The evolution of YC took an artistic turn with the emergence of Apostles of Christ Thru Service (ACTS)...
     </p>
-    <p class="text-justify">
+    <p class="text-justify text-lg">
       Today, the Youth Council Choir remains a vital part of Mary Immaculate Parish...
     </p>
   </section>
 
   <!-- Vision and Mission -->
-  <section class="bg-blue-50 py-12 fade-in">
+  <section class="bg-gradient-to-br from-blue-50 to-white py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">Vision and Mission</h2>
-      <div class="mb-6 bg-white p-6 rounded-xl shadow hover-lift transition duration-300">
+      <div class="mb-6 bg-white p-6 rounded-xl shadow-xl hover-lift transition duration-300">
         <h3 class="font-semibold text-lg mb-2 text-blue-700">Mission:</h3>
-        <p class="text-justify">To glorify God and honor the Blessed Virgin Mary through the power of music...</p>
+        <p class="text-justify text-lg">To glorify God and honor the Blessed Virgin Mary through the power of music...</p>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow hover-lift transition duration-300">
+      <div class="bg-white p-6 rounded-xl shadow-xl hover-lift transition duration-300">
         <h3 class="font-semibold text-lg mb-2 text-blue-700">Vision:</h3>
-        <p class="text-justify">To serve as a guiding light of Marian spirituality within our parish...</p>
+        <p class="text-justify text-lg">To serve as a guiding light of Marian spirituality within our parish...</p>
       </div>
     </div>
   </section>
 
   <!-- Activities and Contributions -->
-  <section class="max-w-5xl mx-auto px-4 py-12 fade-in">
+  <section class="max-w-5xl mx-auto px-4 py-16" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-blue-700">Activities and Contributions</h2>
-    <ul class="list-disc pl-6 space-y-3">
+    <ul class="list-disc pl-6 space-y-3 text-lg">
       <li><strong>Liturgical Services:</strong> Chorister services for weddings, funeral masses...</li>
       <li><strong>Spiritual Formation:</strong> Monthly Word of Life reflections...</li>
       <li><strong>Parish Outreach:</strong> Participating in feeding programs...</li>
@@ -104,11 +94,11 @@
   </section>
 
   <!-- Achievements -->
-  <section class="bg-gray-100 py-12 fade-in">
+  <section class="bg-gray-100 py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-6 text-blue-800">Profound Achievements</h2>
-      <ul class="list-disc pl-6 space-y-3">
-        <li>Top 5 placement in the "Sound of Christmas 2015"... </li>
+      <ul class="list-disc pl-6 space-y-3 text-lg">
+        <li>Top 5 placement in the "Sound of Christmas 2015"...</li>
         <li>4th place in the Villar Foundation's chorale competition 2024...</li>
         <li>And many more...</li>
       </ul>
@@ -116,9 +106,9 @@
   </section>
 
   <!-- Future Goals -->
-  <section class="max-w-4xl mx-auto px-4 py-12 fade-in">
+  <section class="max-w-4xl mx-auto px-4 py-16" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-blue-700">Future Goals</h2>
-    <ol class="list-decimal pl-6 space-y-3">
+    <ol class="list-decimal pl-6 space-y-3 text-lg">
       <li>Greater involvement in choral competitions.</li>
       <li>More chorale clinics to refine their musical excellence.</li>
       <li>Increased collaborations with choirs from other parishes.</li>
@@ -128,10 +118,10 @@
   </section>
 
   <!-- Upcoming Milestones -->
-  <section class="bg-blue-100 py-12 fade-in">
+  <section class="bg-blue-100 py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-6 text-blue-800">Upcoming Milestones</h2>
-      <ul class="list-disc pl-6 space-y-3">
+      <ul class="list-disc pl-6 space-y-3 text-lg">
         <li><strong>40th Anniversary Celebration:</strong> Scheduled for May 2025...</li>
         <li><strong>2025 Parish Fiesta Hermano/Hermana Mayor:</strong> YC will make history...</li>
       </ul>
@@ -139,9 +129,9 @@
   </section>
 
   <!-- Additional Participation -->
-  <section class="max-w-4xl mx-auto px-4 py-12 fade-in">
+  <section class="max-w-4xl mx-auto px-4 py-16" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-blue-700">Additional Participation</h2>
-    <ul class="list-disc pl-6 space-y-3">
+    <ul class="list-disc pl-6 space-y-3 text-lg">
       <li>World Youth Day</li>
       <li>GENFEST</li>
       <li>International Youth Congress</li>
@@ -150,10 +140,17 @@
     </ul>
   </section>
 
-  <!-- Contact Info -->
-  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-700 fade-in">
+  <!-- Footer -->
+  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-700">
     <p>For more information or to connect with YC Core Leaders, please contact the Mary Immaculate Parish Office.</p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
 </body>
 </html>
