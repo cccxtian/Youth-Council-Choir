@@ -7,11 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -210,26 +206,14 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .home-btn {
-        font-size: 0.85rem;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
+      header h1 { font-size: 2rem; }
+      .home-btn { font-size: 0.85rem; }
+      .gallery { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -258,18 +242,18 @@
 
   <script>
     const galleryData = [
-      { caption: "Youth Council Year-End Party – Dec 29, 2024", images: ["im12.jfif"] },
-      { caption: "Youth Council Caroling – Dec 25, 2024", images: ["im11.jfif", "im11.1.jfif", "im11.2.jfif"] },
-      { caption: "Jim's Chorale Concert at Museo San Agustin – Dec 17, 2024", images: ["im10.jpg", "im10.1.jpg", "im10.2.jpg", "im10.3.jpg"] },
       { caption: "Youth Council Annual Retreat", images: ["im9.jpg", "im9.1.jpg", "im9.2.jpg", "im9.3.jpg", "im9.4.jpg", "im9.5.jpg", "im9.6.jpg", "im9.7.jpg", "im9.8.jpg"] },
-      { caption: "Youth Council goes to Enchanted Kingdom", images: ["im8.jpg", "im8.1.jpg", "im8.2.jpg", "im8.3.jpg", "im8.4.jpg", "im8.5.jpg"] },
-      { caption: "Visita Iglesia", images: ["im7.jpg", "im7.1.jpg", "im7.2.jpg", "im7.3.jpg", "im7.4.jpg", "im7.5.jpg", "im7.6.jpg", "im7.7.jpg"] },
-      { caption: "Invited to serve at The Feast SM Southmall. A blessed collaboration in music and faith!", images: ["im6.jpg", "im6.2.jpg", "im6.3.jpg", "im6.4.jpg", "im6.5.jpg"] },
-      { caption: "YC General Assembly – February 16, 2025 (1985–2025)", images: ["im5.jpg", "im5.2.jpg", "im5.3.jpg", "im5.4.jpg", "im5.5.jpg"] },
-      { caption: "Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵", images: ["im4.jpg"] },
-      { caption: "YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶", images: ["im3.jpg"] },
+      { caption: "Christ be our light, shine in our hearts, shine through the darkness. Youth Council at last night's Easter Vigil! Happy Easter, everyone! Alleluia!", images: ["im1.jpg"] },
       { caption: "\"Si Hesu Kristo'y nabuhay, Siya'y ating kaliwanagan!\" MIP Grand Choir – Easter Vigil Celebration!", images: ["im2.jpg"] },
-      { caption: "Christ be our light, shine in our hearts, shine through the darkness. Youth Council at last night's Easter Vigil! Happy Easter, everyone! Alleluia!", images: ["im1.jpg"] }
+      { caption: "Visita Iglesia", images: ["im7.jpg", "im7.1.jpg", "im7.2.jpg", "im7.3.jpg", "im7.4.jpg", "im7.5.jpg", "im7.6.jpg", "im7.7.jpg"] },
+      { caption: "YC with 5 PM Priest Presider, Fr. John Gastador. 🙏🎶", images: ["im3.jpg"] },
+      { caption: "Rehearsing for Ash Wednesday and the Lenten Season ✝️🎵", images: ["im4.jpg"] },
+      { caption: "YC General Assembly – February 16, 2025 (1985–2025)", images: ["im5.jpg", "im5.2.jpg", "im5.3.jpg", "im5.4.jpg", "im5.5.jpg"] },
+      { caption: "Invited to serve at The Feast SM Southmall. A blessed collaboration in music and faith!", images: ["im6.jpg", "im6.2.jpg", "im6.3.jpg", "im6.4.jpg", "im6.5.jpg"] },
+      { caption: "Youth Council goes to Enchanted Kingdom", images: ["im8.jpg", "im8.1.jpg", "im8.2.jpg", "im8.3.jpg", "im8.4.jpg", "im8.5.jpg"] },
+      { caption: "Jim's Chorale concert at Museo San Agustin – Dec 17, 2024", images: ["im10.jpg", "im10.1.jpg", "im10.2.jpg", "im10.3.jpg"] },
+      { caption: "Youth Council caroling – Dec 25, 2024", images: ["im11.jfif", "im11.1.jfif", "im11.2.jfif"] },
+      { caption: "Youth Council year-end party – Dec 29, 2024", images: ["im12.jfif"] }
     ];
 
     const gallerySection = document.getElementById("gallery-section");
