@@ -221,10 +221,16 @@
   .month {
     padding: 14px;
     border-radius: 14px;
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* consistent layout parts */
   }
 
   .month-name {
     font-size: 1.2rem;
+  }
+
+  .weekdays {
+    font-size: 0.75rem;
   }
 
   .day {
@@ -232,37 +238,12 @@
     font-size: 0.75rem;
   }
 
-  .weekdays {
-    font-size: 0.75rem;
+  #calendar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* 1 column on mobile */
+    gap: 20px;
   }
 }
-@media (max-width: 600px) {
-  .logo-link {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    gap: 6px;
-  }
-
-  .logo-link img {
-    height: 22px;
-    width: 22px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-
-  /* 🔧 This ensures all .month boxes are at least the same height */
-  .month {
-    min-height: 440px; /* Adjust as needed based on your content */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-}
-
 
   </style>
 </head>
