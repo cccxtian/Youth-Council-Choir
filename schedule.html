@@ -9,11 +9,11 @@
     :root {
       --primary: #4b6cb7;
       --secondary: #182848;
-      --highlight: #b8e994;
-      --bg: #f3f4f6;
+      --highlight: #00ffe7;
+      --bg: #0f2027;
       --text: #ffffff;
       --fade-in: fade-in 0.8s ease-out forwards;
-      --glass: rgba(255, 255, 255, 0.1);
+      --glass: rgba(255, 255, 255, 0.08);
       --glass-border: rgba(255, 255, 255, 0.2);
       --blur: blur(16px);
       --glow: 0 0 12px var(--highlight);
@@ -25,9 +25,9 @@
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 rgba(184, 233, 148, 0.4); }
-      50% { box-shadow: 0 0 20px rgba(184, 233, 148, 0.7); }
-      100% { box-shadow: 0 0 0 rgba(184, 233, 148, 0.4); }
+      0% { box-shadow: 0 0 0 rgba(0, 255, 231, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(0, 255, 231, 0.7); }
+      100% { box-shadow: 0 0 0 rgba(0, 255, 231, 0.4); }
     }
 
     * {
@@ -39,9 +39,7 @@
       padding: 20px;
       font-family: 'Segoe UI', sans-serif;
       color: var(--text);
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
-                  url('bg1.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       animation: var(--fade-in);
     }
 
