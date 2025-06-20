@@ -81,13 +81,14 @@
     line-height: 1;
   }
 
-  /* Stronger zoom-out on hero background image */
+  /* Show full hero image without cropping */
   section.relative.shadow-md img {
-    transform: scale(1.6);
-    transform-origin: center;
+    object-fit: contain !important;
+    height: 100%;
+    width: 100%;
   }
 
-  /* Smaller header text */
+  /* Shrink header text */
   section.relative.shadow-md h1 {
     font-size: 16px;
     line-height: 1.1;
