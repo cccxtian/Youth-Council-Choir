@@ -61,6 +61,7 @@
 
     /* Responsive adjustments for Back button */
 @media (max-width: 768px) {
+  /* Back to Home Button */
   .sticky-nav {
     padding: 2px 5px;
     gap: 3px;
@@ -72,14 +73,36 @@
     width: 16px;
     height: 16px;
     border-width: 1px;
-    transform: scale(0.9); /* zoomed out slightly */
+    transform: scale(0.85);
   }
 
   .sticky-nav span {
     font-size: 9px;
     line-height: 1;
   }
+
+  /* Zoomed out background image in hero/header */
+  section.relative.shadow-md img {
+    transform: scale(1.25);
+    transform-origin: center;
+  }
+
+  /* Smaller header text */
+  section.relative.shadow-md h1 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  /* Optional: Shrink navbar text & spacing */
+  .nav-links {
+    font-size: 14px;
+  }
+
+  .nav-links td {
+    padding: 5px 3px;
+  }
 }
+
 
 
 
