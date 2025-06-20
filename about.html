@@ -7,40 +7,72 @@
   <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: #a5f3fc;
+    }
+
     .hover-lift:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
     }
+
     .sticky-nav {
       position: fixed;
       top: 1rem;
       left: 1rem;
       z-index: 50;
     }
-    ul.list-disc li::marker {
-      color: #3b82f6;
+
+    ul.list-disc li::marker,
+    ol.list-decimal li::marker {
+      color: #22d3ee;
       font-weight: bold;
     }
-    ol.list-decimal li::marker {
-      color: #2563eb;
-      font-weight: bold;
+
+    .back-btn {
+      background: rgba(34, 211, 238, 0.15);
+      color: #67e8f9;
+      border: 1px solid #22d3ee;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(34, 211, 238, 0.3);
+      color: #a5f3fc;
+      box-shadow: 0 0 12px #22d3ee;
+    }
+
+    h1, h2, h3 {
+      color: #67e8f9;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .bg-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed tracking-wide">
+<body class="leading-relaxed tracking-wide">
 
-  <!-- Sticky Back Button -->
-  <a href="home.html" class="sticky-nav flex items-center gap-3 bg-white/90 px-3 py-2 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 hover:bg-white transition duration-300 ease-in-out hover-lift group">
-    <img src="logo.jpg" alt="YC Logo" class="w-9 h-9 rounded-full border border-gray-300 shadow-sm transition duration-300 group-hover:scale-105" />
-    <span class="text-base font-semibold text-gray-700 group-hover:text-blue-700 transition">← Back to Home</span>
+  <!-- Back to Home Button -->
+  <a href="home.html" class="sticky-nav flex items-center gap-3 px-4 py-2 rounded-full shadow-lg backdrop-blur-md border back-btn hover-lift group">
+    <img src="logo.jpg" alt="YC Logo" class="w-9 h-9 rounded-full border border-cyan-300 shadow-sm transition duration-300 group-hover:scale-105" />
+    <span class="text-base font-semibold group-hover:text-cyan-100 transition">← Back to Home</span>
   </a>
 
-  <!-- Hero Image -->
+  <!-- Hero -->
   <section class="relative h-96 overflow-hidden shadow-md">
-    <img src="ab1.jpg" alt="Youth Council Choir" class="object-cover w-full h-full" />
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-center px-4">
-      <h1 class="text-white text-4xl md:text-5xl font-bold drop-shadow-lg" data-aos="fade-down">
+    <img src="ab1.jpg" alt="Youth Council Choir" class="object-cover w-full h-full opacity-40" />
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold drop-shadow-lg" data-aos="fade-down">
         Youth Council Choir<br />
         Mary Immaculate Parish – Nature Church
       </h1>
@@ -49,7 +81,7 @@
 
   <!-- Introduction -->
   <section class="max-w-5xl mx-auto px-4 py-16" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6 text-blue-700">Who is the Youth Council Choir?</h2>
+    <h2 class="text-3xl font-bold mb-6">Who is the Youth Council Choir?</h2>
     <p class="mb-6 text-justify text-lg">
       The origins of the <strong>Youth Council</strong> (YC) choir at <strong>Mary Immaculate Parish</strong> (MIP) trace back to the early 1980s. Between 1983 and 1984, <strong>Most Rev. Roberto Calara Mallari DD</strong>, the current Bishop of the Diocese of Tarlac, initiated efforts to gather the parish’s youth. By 1985, <strong>Rev. Fr. Pierino Rogliardi</strong> continued this mission by introducing the Focolare Movement to a group of young parishioners, marking the <strong>official formation of the Youth Council</strong>.
     </p>
@@ -65,17 +97,17 @@
   </section>
 
   <!-- Vision and Mission -->
-  <section class="bg-gradient-to-br from-blue-50 to-white py-16" data-aos="fade-up">
+  <section class="bg-section py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">Vision and Mission</h2>
-      <div class="mb-6 bg-white p-6 rounded-xl shadow-xl hover-lift transition duration-300">
-        <h3 class="font-semibold text-lg mb-2 text-blue-700">Mission:</h3>
+      <h2 class="text-3xl font-bold mb-8 text-center">Vision and Mission</h2>
+      <div class="mb-6 p-6 rounded-xl shadow-lg hover-lift transition duration-300">
+        <h3 class="font-semibold text-lg mb-2">Mission:</h3>
         <p class="text-justify text-lg">
           To glorify God and honor the Blessed Virgin Mary through the power of music, nurturing a profound sense of devotion, unity, and service within our parish community.
         </p>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-xl hover-lift transition duration-300">
-        <h3 class="font-semibold text-lg mb-2 text-blue-700">Vision:</h3>
+      <div class="p-6 rounded-xl shadow-lg hover-lift transition duration-300">
+        <h3 class="font-semibold text-lg mb-2">Vision:</h3>
         <p class="text-justify text-lg">
           To serve as a guiding light of Marian spirituality within our parish, igniting souls through sacred music and cultivating a community of song and prayer guided by the virtues of Our Mother Mary and the principles of Focolare spirituality.
         </p>
@@ -83,9 +115,9 @@
     </div>
   </section>
 
-  <!-- Activities and Contributions -->
+  <!-- Activities -->
   <section class="max-w-5xl mx-auto px-4 py-16" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6 text-blue-700">Activities and Contributions</h2>
+    <h2 class="text-3xl font-bold mb-6">Activities and Contributions</h2>
     <ul class="list-disc pl-6 space-y-3 text-lg">
       <li><strong>Liturgical Services:</strong> Chorister services for weddings, funeral masses, and regular Sunday services.</li>
       <li><strong>Spiritual Formation:</strong> Monthly Word of Life reflections, Block Rosary devotions, and retreats with parish priests and seminarians.</li>
@@ -95,9 +127,9 @@
   </section>
 
   <!-- Achievements -->
-  <section class="bg-gray-100 py-16" data-aos="fade-up">
+  <section class="bg-section py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6 text-blue-800">Profound Achievements</h2>
+      <h2 class="text-3xl font-bold mb-6">Profound Achievements</h2>
       <ul class="list-disc pl-6 space-y-3 text-lg">
         <li>Top 5 placement in the <strong>"Sound of Christmas 2015"</strong> Open Category competition held in Southmall, Las Piñas.</li>
         <li>4th place in the Villar Foundation’s chorale competition 2024, honoring <strong>San Ezekiel Moreno</strong>.</li>
@@ -108,7 +140,7 @@
 
   <!-- Future Goals -->
   <section class="max-w-4xl mx-auto px-4 py-16" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6 text-blue-700">Future Goals</h2>
+    <h2 class="text-3xl font-bold mb-6">Future Goals</h2>
     <ol class="list-decimal pl-6 space-y-3 text-lg">
       <li>Greater involvement in choral competitions.</li>
       <li>More chorale clinics to refine their musical excellence.</li>
@@ -118,10 +150,10 @@
     </ol>
   </section>
 
-  <!-- Upcoming Milestones -->
-  <section class="bg-blue-100 py-16" data-aos="fade-up">
+  <!-- Milestones -->
+  <section class="bg-section py-16" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6 text-blue-800">Upcoming Milestones</h2>
+      <h2 class="text-3xl font-bold mb-6">Upcoming Milestones</h2>
       <ul class="list-disc pl-6 space-y-3 text-lg">
         <li><strong>40th Anniversary Celebration:</strong> Scheduled for May 2025, marking four decades of YC’s legacy.</li>
         <li><strong>2025 Parish Fiesta Hermano/Hermana Mayor:</strong> YC will make history as the first choir group to assume this role at Mary Immaculate Parish.</li>
@@ -129,9 +161,9 @@
     </div>
   </section>
 
-  <!-- Additional Participation -->
+  <!-- Participation -->
   <section class="max-w-4xl mx-auto px-4 py-16" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6 text-blue-700">Additional Participation</h2>
+    <h2 class="text-3xl font-bold mb-6">Additional Participation</h2>
     <ul class="list-disc pl-6 space-y-3 text-lg">
       <li>World Youth Day</li>
       <li>GENFEST</li>
@@ -142,16 +174,13 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-700">
+  <footer class="py-6 text-center text-sm text-cyan-300 border-t border-cyan-800">
     <p>For more information or to connect with YC Core Leaders, please contact the Mary Immaculate Parish Office.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+    AOS.init({ duration: 800, once: true });
   </script>
 </body>
 </html>
